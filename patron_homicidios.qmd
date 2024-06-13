@@ -3,14 +3,13 @@ title: "Patrones de Homicidios en México"
 format:
   dashboard:
     logo: images/lytica_logo_black_nobk.png
-    nav-buttons: [linkedin, twitter, github]
 editor_options: 
   chunk_output_type: console
 ---
 
 # Caso 1
 
-## Row {height=70%}
+## Row 
 
 ```{r}
 #| label: librerias
@@ -19,9 +18,12 @@ editor_options:
 
 library(tidyverse)
 library(styleBreton)
+library(sf)
 ```
 
-::: {.card title="Mapa de Calor"}
+### Column {width=80%}
+
+::: {.card title="Mapa de Calor con Cuenta de Homicidios"}
 
 ```{r}
 #| label: mapa de calor homicidios
@@ -30,7 +32,7 @@ library(styleBreton)
 
 # importa datos
 dt_homic <- 
-  read_rds("homicidios.rds")
+  read_rds("raw_data/homicidios.rds")
 
 # plot mapa de calor
 dt_homic  |> 
@@ -58,7 +60,7 @@ dt_homic  |>
           panel.background = element_rect(fill = "#FFFFFF"),
           legend.position = "top") +
     labs(title = "Patrones de la Violencia Homicida en México",
-         subtitle = "Víctimas de homicidios dolosos acumuladas cada mes por Entidad Federativa, de enero de 2016 a abril de 2024.",
+         subtitle = "Víctimas de homicidio doloso acumuladas cada mes por Entidad Federativa, de enero de 2016 a abril de 2024.",
          x = NULL,
          y = NULL,
          caption = "Fuente: Reportes de Incidencia Delictiva; 
@@ -70,15 +72,16 @@ dt_homic  |>
                                 label = FALSE,
                                 title.vjust =  -0.01)) +
     scale_y_discrete(expand = c(0, 0)) +
-    scale_x_date(expand = c(0, 0))
-  
+    scale_x_date(expand = c(0, 0)) #-> ab1
+
+# plotly::ggplotly(ab1)
 ```
 
 
 :::
 
+### Column {width=20%}
 
-## Row {height=30%}
 
 ```{r}
 #| label: texto explicativo l1
@@ -90,16 +93,10 @@ htmltools::includeMarkdown("hom_l1_text.md")
 
 # Caso 2
 
-## Row {height=70%}
+## Row 
 
-```{r}
-#| label: librerias 2
-#| echo: false
-#| message: false
 
-library(tidyverse)
-library(styleBreton)
-```
+### Column {width=80%}
 
 ::: {.card title="Mapa de Calor con Tasa de Homicidios"}
 
@@ -110,7 +107,7 @@ library(styleBreton)
 
 # importa datos
 dt_homic_tasa <- 
-  read_rds("homic_tasa.rds")
+  read_rds("raw_data/homic_tasa.rds")
 
 # plot mapa de calor
 dt_homic_tasa  |> 
@@ -138,7 +135,7 @@ dt_homic_tasa  |>
           panel.background = element_rect(fill = "#FFFFFF"),
           legend.position = "top") +
     labs(title = "¿En qué Estados Ocurren Más Homicidios?",
-         subtitle = "Proporcion de víctimas de homicidios por cada 100,000 habitantes por Entidad Federativa, de enero de 2016 a abril de 2024.",
+         subtitle = "Proporcion de víctimas de homicidio doloso por cada 100,000 habitantes por Entidad Federativa, de enero de 2016 a abril de 2024.",
          x = NULL,
          y = NULL,
          caption = "Fuente: Reportes de Incidencia Delictiva; 
@@ -157,7 +154,7 @@ dt_homic_tasa  |>
 :::
 
 
-## Row {height=30%}
+### Column {width=20%}
 
 ```{r}
 #| label: texto explicativo l2
@@ -165,6 +162,122 @@ dt_homic_tasa  |>
 htmltools::includeMarkdown("hom_l2_text.md")
 
 ```
+
+
+# Mapa
+
+## Row
+
+
+### Column {width=70%}
+
+::: {.card title="Mapa de Tasa de Homicidios"}
+
+
+```{r}
+#| label: mapa de tasa de homicidios
+
+mapa_nal_tasa_2023 <- 
+  read_rds("raw_data/mapa_nal_tasa_2023.rds")
+
+# limites
+vlim <- 
+  c(min(mapa_nal_tasa_2023$tasa),
+    max(mapa_nal_tasa_2023$tasa))
+
+# plot de mapa
+mapa_nal_tasa_2023 |> 
+  ggplot(aes(fill = tasa)) +
+  geom_sf(color = "grey60",
+          size = 0.7) +
+  theme_breton() +
+  theme(plot.background = element_blank(),
+        panel.background = element_rect(fill = "#FFFFFF"),
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        panel.grid.major = element_blank(),
+        axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank()) +
+  labs(title = "Geografía de la Violencia Homicida",
+       subtitle = "Víctimas de homicidio doloso por cada 100,000 habitantes en el año 2023",
+       caption = "Fuente: Reportes de Incidencia Delictiva; 
+       Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública, 
+             Gobierno de México. 
+             <br>CONAPO Conciliaciones de población.<br>
+             Visualización: Juan L. Bretón, PMP | @BretonPmp") +
+  scale_fill_gradient(name = "Tasa de\nvíctimas por\n100,000 habs", 
+                      low = "#FFFFFF",
+                      high = "#7B0303",
+                      limits = vlim,
+                      breaks = round(seq(vlim[1],
+                                         vlim[2],
+                                         length.out = 5),
+                                     digits = 1))
+```
+
+
+:::
+
+### Column {width=30%}
+
+```{r}
+#| label: texto explicativo l3
+
+htmltools::includeMarkdown("hom_l4_text.md")
+```
+
+
+# Tendencias
+
+## Row
+
+### Column {width=80%}
+
+::: {.card title="Tendencias de Homicidios"}
+
+```{r}
+#| label: tendencias homicidios
+
+# data
+dt_homic_sim <- 
+  dt_homic |>
+  select(rowid, id_entidad, año, num_mes, 
+         mes, fecha, estado, homicidios)
+
+# Plot de tendencias de homicidios por mes por entidad federativa
+dt_homic_sim |>  
+  filter(fecha >= as_date("2016-01-01")) |> 
+  filter(!fecha > as_date("2024-03-01")) |> 
+  ggplot(aes(x = fecha, 
+             y = homicidios,
+             group = estado)) +
+  geom_line(alpha = 0.25) +
+  # poisson trend line
+  geom_smooth(method = "glm",
+              method.args = c("poisson"),
+              se = FALSE, 
+              linewidth = 0.25,
+              color = "darkred") +
+  facet_wrap(vars(estado), scales = "free_y") +
+  theme_breton() +
+  theme(strip.text.x.top = element_text(size = 6.5),
+        axis.text = element_text(size = 6)) +
+  labs(title = "Tendencias de Homicidios Dolosos",
+         subtitle = "Cifras mensuales por estado. La línea roja representa la tendencia simple.",
+         x = "Mes",
+         y = "Víctimas de homicidio doloso por mes",
+         caption = "Fuente: Reportes de Incidencia Delictiva; Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública, 
+           Gobierno de México.<br>
+           Visualización: Juan L. Bretón, PMP | @juanlbreton")
+```
+
+
+:::
+
+
+
+### Column {width=20%}
 
 
 
