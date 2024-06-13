@@ -1,0 +1,8 @@
+---
+title: "Confeccionando Historias"
+---
+
+## Bienvenido
+
+[Patrones de Homicidios](patron_homicidios.qmd)
+

@@ -1,0 +1,88 @@
+---
+title: "Patrones de Homicidios en México"
+format:
+  dashboard:
+    logo: images/lytica_logo_black_nobk.png
+    nav-buttons: [linkedin, twitter, github]
+theme: flatly
+editor_options: 
+  chunk_output_type: console
+---
+
+# Level 1
+
+## Row {height=70%}
+
+```{r}
+#| label: librerias
+#| echo: false
+#| message: false
+
+library(tidyverse)
+library(styleBreton)
+```
+
+::: {.card title="Mapa de Calor"}
+
+```{r}
+#| label: mapa de calor homicidios
+#| fig.width: 16
+#| fig.height: 6
+
+# importa datos
+dt_homic <- 
+  read_rds("homicidios.rds")
+
+# plot mapa de calor
+dt_homic  |> 
+  filter(año > 2015) |> 
+  na.omit() |>  
+  mutate(estado = factor(estado, 
+                         levels = rev(sort(unique(estado)))),
+         texto = paste0(estado, "\n",
+                        año, mes, "\n",
+                        homicidios)) |> 
+  ggplot(aes(x = fecha,
+             y = estado, 
+             fill = homicidios)) +
+    geom_tile(color = "grey70", 
+              alpha = 0.85) +
+    scale_fill_gradient(low = "#FFFFFF", 
+                        high = "#7B0303",
+                        expand = c(0,0)) +
+    geom_vline(aes(xintercept = as_date("2018-12-01"), 
+                   alpha = 0.15), 
+               linewidth = 3, 
+               color = "darkgrey") +
+    theme_breton() +
+    theme(plot.background = element_blank(),
+          panel.background = element_rect(fill = "#FFFFFF"),
+          legend.position = "top") +
+    labs(title = "Patrones de la Violencia Homicida en México",
+         subtitle = "Víctimas de homicidios dolosos acumuladas cada mes por Entidad Federativa, de enero de 2016 a abril de 2024.",
+         x = NULL,
+         y = NULL,
+         caption = "Fuente: Reportes de Incidencia Delictiva; 
+         Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública, 
+         Gobierno de México.<br>
+         Visualización: Juan L. Bretón, PMP | @juanlbreton",
+         fill = "Víctimas por Mes") +
+    guides(alpha = guide_legend("Inicio de Sexenio", 
+                                label = FALSE,
+                                title.vjust =  -0.01)) +
+    scale_y_discrete(expand = c(0, 0)) +
+    scale_x_date(expand = c(0, 0))
+  
+```
+
+
+:::
+
+
+## Row {height=30%}
+
+Placeholder
+
+
+
+
