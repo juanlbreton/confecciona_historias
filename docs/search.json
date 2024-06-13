@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "hom_l1_text.html",
+    "href": "hom_l1_text.html",
+    "title": "Confeccionando Historias",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Utilización del mapa de calor\nEl mapa de calor es una representación gráfica de datos en la que los valores individuales contenidos en una matriz son representados mediante colores. Los mapas de calor son útiles porque permiten visualizar fácilmente la distribución de los datos y encontrar patrones en grandes conjuntos de datos.\nSin embargo, si no se tiene cuidado, los mapas de calor pueden resultar engañosos. Por ejemplo, si los datos no están normalizados, los colores pueden conducir a interpretaciones que no reflejen la verdadera distribución de los datos."
+  },
+  {
+    "objectID": "hom_l2_text.html",
+    "href": "hom_l2_text.html",
+    "title": "Confeccionando Historias",
+    "section": "",
+    "text": "Utilización del mapa de calor con datos comparables\nDado que los estados tienen poblaciones de diferente tamaño, comparar el número absoluto de homicidios resulta inapropiado.\nEn su lugar, se debe comparar el número de homicidios por cada 100,000 habitantes. De esta manera, se pueden comparar los estados de manera más justa."
   },
   {
     "objectID": "index.html",
@@ -19,5 +26,12 @@
     "title": "Confeccionando Historias",
     "section": "",
     "text": "Patrones de Homicidios"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
