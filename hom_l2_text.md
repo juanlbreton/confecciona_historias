@@ -1,4 +1,4 @@
-### Utilización del mapa de calor con datos comparables
+### Mapa de Calor con Datos Comparables
 
 Dado que los estados tienen poblaciones de diferente tamaño, comparar el número absoluto de homicidios resulta inapropiado. 
 

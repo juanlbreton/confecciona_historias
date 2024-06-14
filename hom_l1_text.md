@@ -1,4 +1,4 @@
-### Utilización del mapa de calor
+### Mapa de Calor
 
 El mapa de calor es una representación gráfica de datos en la que los valores individuales contenidos en una matriz son representados mediante colores. Los mapas de calor son útiles porque permiten visualizar fácilmente la distribución de los datos y encontrar patrones en grandes conjuntos de datos.
 

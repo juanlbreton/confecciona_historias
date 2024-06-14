@@ -4,14 +4,21 @@
     "href": "hom_l1_text.html",
     "title": "Confeccionando Historias",
     "section": "",
-    "text": "Utilización del mapa de calor\nEl mapa de calor es una representación gráfica de datos en la que los valores individuales contenidos en una matriz son representados mediante colores. Los mapas de calor son útiles porque permiten visualizar fácilmente la distribución de los datos y encontrar patrones en grandes conjuntos de datos.\nSin embargo, si no se tiene cuidado, los mapas de calor pueden resultar engañosos. Por ejemplo, si los datos no están normalizados, los colores pueden conducir a interpretaciones que no reflejen la verdadera distribución de los datos."
+    "text": "Mapa de Calor\nEl mapa de calor es una representación gráfica de datos en la que los valores individuales contenidos en una matriz son representados mediante colores. Los mapas de calor son útiles porque permiten visualizar fácilmente la distribución de los datos y encontrar patrones en grandes conjuntos de datos.\nSin embargo, si no se tiene cuidado, los mapas de calor pueden resultar engañosos. Por ejemplo, si los datos no están normalizados, los colores pueden conducir a interpretaciones que no reflejen la verdadera distribución de los datos."
   },
   {
-    "objectID": "hom_l2_text.html",
-    "href": "hom_l2_text.html",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Juan L. Bretón, PMP",
+    "section": "",
+    "text": "Evangelista y promotor de la cultura impulsada por datos. Sus esfuerzos profesionales se han enfocado junto con su pasión en aprovechar el poder de los algoritmos y la tecnología de vanguardia para el desarrollo e implementación de modelos de analítica predictiva con una visión orientada a ofrecer soluciones basadas en datos a desafíos organizacionales complejos."
+  },
+  {
+    "objectID": "hom_l4_text.html",
+    "href": "hom_l4_text.html",
     "title": "Confeccionando Historias",
     "section": "",
-    "text": "Utilización del mapa de calor con datos comparables\nDado que los estados tienen poblaciones de diferente tamaño, comparar el número absoluto de homicidios resulta inapropiado.\nEn su lugar, se debe comparar el número de homicidios por cada 100,000 habitantes. De esta manera, se pueden comparar los estados de manera más justa."
+    "text": "Tendencia\nLa distribución de poisson se utiliza para modelar la tendencia de homicidios dolosos en razón con el tiempo. La distribución de poisson es una distribución de probabilidad discreta que expresa, a partir de una frecuencia de ocurrencia media, la probabilidad de que ocurra un determinado número de eventos durante cierto período de tiempo. En este caso, el número de homicidios dolosos en cada mes."
   },
   {
     "objectID": "index.html",
@@ -28,17 +35,17 @@
     "text": "Patrones de Homicidios"
   },
   {
-    "objectID": "hom_l4_text.html",
-    "href": "hom_l4_text.html",
+    "objectID": "hom_l2_text.html",
+    "href": "hom_l2_text.html",
+    "title": "Confeccionando Historias",
+    "section": "",
+    "text": "Mapa de Calor con Datos Comparables\nDado que los estados tienen poblaciones de diferente tamaño, comparar el número absoluto de homicidios resulta inapropiado.\nEn su lugar, se debe comparar el número de homicidios por cada 100,000 habitantes. De esta manera, se pueden comparar los estados de manera más justa."
+  },
+  {
+    "objectID": "hom_l3_text.html",
+    "href": "hom_l3_text.html",
     "title": "Confeccionando Historias",
     "section": "",
     "text": "Mapa Cloropleta\nUn mapa cloropleta es un tipo de mapa temático en el que las áreas geográficas se colorean en proporción a la variable que se está representando.\nEn otras palabras, los colores más oscuros representan valores más altos y los colores más claros representan valores más bajos."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]

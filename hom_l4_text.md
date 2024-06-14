@@ -1,5 +1,3 @@
-### Mapa Cloropleta
+### Tendencia
 
-Un mapa cloropleta es un tipo de mapa temático en el que las áreas geográficas se colorean en proporción a la variable que se está representando. 
-
-En otras palabras, los colores más oscuros representan valores más altos y los colores más claros representan valores más bajos.
+La distribución de poisson se utiliza para modelar la tendencia de homicidios dolosos en razón con el tiempo. La distribución de poisson es una distribución de probabilidad discreta que expresa, a partir de una frecuencia de ocurrencia media, la probabilidad de que ocurra un determinado número de eventos durante cierto período de tiempo. En este caso, el número de homicidios dolosos en cada mes.
