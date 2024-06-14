@@ -1,8 +1,12 @@
 ---
-title: "Confeccionando Historias"
+title: "Confeccionando Historias a partir de Datos"
+favicon: images/favicon_jlbe.jpg
 ---
 
-## Bienvenido
 
-[Patrones de Homicidios](patron_homicidios.qmd)
 
+::: callout-tip
+Necesitamos información para tomar decisiones. Sólo tenemos los datos. Es necesario hacer el trabajo.
+:::
+
+[Patrones de Homicidios Dolosos](patron_homicidios.qmd)

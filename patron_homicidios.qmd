@@ -261,7 +261,7 @@ dt_homic_sim |>
               color = "darkred") +
   facet_wrap(vars(estado), scales = "free_y") +
   theme_breton() +
-  theme(strip.text.x.top = element_text(size = 5.5),
+  theme(strip.text.x.top = element_text(size = 5.0),
         axis.text = element_text(size = 6)) +
   labs(title = "Tendencias de Homicidios Dolosos",
          subtitle = "Cifras mensuales por estado. La línea roja representa la tendencia simple.",
