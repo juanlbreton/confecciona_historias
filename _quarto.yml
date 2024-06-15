@@ -8,13 +8,14 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Inicio
       - href: about.qmd
-        text: About
+        text: Acerca de
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      cosmo
     lang: es
     css: styles.css
     toc: true

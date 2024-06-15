@@ -1,12 +1,32 @@
 ---
 title: "Confeccionando Historias a partir de Datos"
+bibliography: refer.bib
 favicon: images/favicon_jlbe.jpg
 ---
 
-
-
 ::: callout-tip
-Necesitamos información para tomar decisiones. Sólo tenemos los datos. Es necesario hacer el trabajo.
+Necesitamos información para tomar decisiones. Sólo tenemos los datos. 
+Es necesario hacer el trabajo.
 :::
 
+## Conocimiento
+
+El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento [@rfds2].
+
+## Historias
+
+Una de las formas más humanas para compartir conocimiento son, precisamente, las historias.
+
+Para contar una historia a partir de los datos, deben considerarse los cuestionamientos siguientes [@tell_stories].
+
+1.  ¿Quién generó el conjunto de datos y con qué objeto?
+2.  ¿Cómo se generaron los datos?
+3.  ¿Qué es lo que el conjunto de datos intenta decir y cómo podemos hacer que lo diga?
+4.  ¿Qué es lo que esperamos que los demás conozcan a partir de los datos y cómo podríamos convencerles de ello?
+5.  ¿Quiénes se verían afectados por el proceso de análisis y por sus resultados? ¿Cómo podríamos involucrarse en el análisis?
+
+## Casos de uso
+
 [Patrones de Homicidios Dolosos](patron_homicidios.qmd)
+
+[Resultados de la Elección Presidencial 2024](eleccion.qmd)

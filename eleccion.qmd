@@ -1,0 +1,173 @@
+---
+title: "Resultados de la Elección Presidencial 2024"
+bibliography: refer.bib
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+## ¿Qué podemos saber de la elección presidencial 2024?
+
+Con los datos de los conteos distritales de la elección presidencial 2024 celebrados en el Instituto Nacional Electoral (INE) es posible examinar algunos de los patrones que se presentaron en el proceso.
+
+## Workflow
+
+### Dataset
+
+```{r}
+#| label: ine paquetes
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(styleBreton)
+library(ggrepel)
+library(gt)
+```
+
+```{r}
+#| label: ine importa dataset
+#| echo: false
+#| message: false
+#| warning: false
+
+# importa dataset
+dt_01 <- 
+  read_rds("raw_data/casillas_2024.rds")
+```
+
+El dataset contiene los datos de las `r format(nrow(dt_01), big.mark = ",")` casillas correspondientes a cada una de las `r format(length(unique(dt_01$seccion)), big.mark = ",")` secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset.
+
+```{r}
+#| label: ine muestra dataset
+#| echo: false
+#| message: false
+#| warning: false
+
+# muestra del dataset
+gt(dt_01 |> 
+     slice_sample(n = 10))
+```
+
+Además de la identificación de la casilla y de la sección, el dataset ha sido modificado de acuerdo con el algoritmo publicado por el INE para mostrar el número de votos emitidos, los votos nulos, los votos válidos y los votos por cada una de las  candidatas punteras.
+
+Es importante destacar que este dataset no tiene incertidumbre, porque, estadísticamente hablando, la elección constituye un censo.
+
+
+### Resultados totales
+
+Los resultados totales de la elección presidencial 2024, en número de votos y porcentajes, para las 2 candidaturas punteras se presentan a continuación.
+
+```{r}
+#| label: ine resultados globales
+#| echo: false
+#| message: false
+#| warning: false
+
+# tabla de resultados
+dt_01 |> 
+  summarize(across(.cols = c(xochitl, claudia, total_votos_calculados),
+                   .fns = \(x) sum(x, na.rm = TRUE))) |> 
+  mutate(pct_xochitl = xochitl / total_votos_calculados,
+         pct_claudia = claudia / total_votos_calculados)|>
+  select(-total_votos_calculados) |>
+  knitr::kable(col.names = c('Xóchitl Gálvez', 'Claudia Sheinbaum',
+                             'Porcentaje Gálvez', 'Porcentaje Sheinbaum'), 
+               format.args = list(big.mark = ',')) |> 
+  kableExtra::kable_styling(full_width = FALSE, position = "center")
+```
+
+
+### Resultados por entidad y sección
+
+La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.
+
+```{r}
+#| label: ine resultados por estado seccion
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 8
+#| fig-cap: "Proporción de votos a favor de cada candidata por sección electoral"
+
+# proporcion de votos por candidata por sección
+dt_01 |> 
+  summarize(across(.cols = c(xochitl, claudia, total_votos_calculados),
+                   .fns = \(x) sum(x, na.rm = TRUE)),
+            .by = c(entidad, seccion, casilla)) |> 
+  mutate(pct_xochitl = xochitl / total_votos_calculados,
+         pct_claudia = claudia / total_votos_calculados) |>
+  ggplot(aes(x = pct_xochitl, 
+             y = pct_claudia)) +
+  geom_abline(color = "darkred", 
+              linewidth = 0.65,
+              alpha = 0.2) +
+  geom_point(aes(color = casilla),
+             alpha =  0.3) +
+  facet_wrap(vars(entidad)) +
+  labs(title = "Proporción de Votos a favor de cada Candidata",
+       subtitle = "Proporciones por sección electoral por tipo de casilla",
+       x = "Proporción de votos a favor de Xóchitl Gálvez",
+       y = "Proporción de votos a favor de Claudia Sheinbaum",
+       caption = "Fuente: INE Cómputos Distritales 2024, 
+         Presidencia de la República<br>
+         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton",
+       color = "Tipo de casila") +
+  scale_color_brewer(palette = "Set1") +
+  theme_breton() +
+  theme(legend.position = 'top') 
+```
+
+
+Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum, aunque los votos no urbanos parecen hacerlo en mayor proporción.
+
+Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez acumula la mayor cantidad de votos en casillas mayoritariamente urbanas. Debe destacarse que solo en el estado de Aguascalientes la candidata Gálvez obtiene más votos que la candidata Sheinbaum.
+
+```{r}
+#| label: ine resultados por estado seccion max
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-cap: "Estados y tipo de casilla con la mayor cantidad de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum"
+
+# ratio 100 claudia por estado casilla max
+dt_01 |> 
+  summarize(across(c(xochitl, claudia),
+                   \(x) sum(x, na.rm = TRUE)),
+            .by = c(entidad, casilla)) |> 
+  mutate(ratio_claudia100 = (xochitl / claudia) * 100) |> 
+  slice_max(order_by = ratio_claudia100, n = 6, with_ties = FALSE) |> 
+  select(-c(xochitl, claudia)) |> 
+  gt()
+```
+
+Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez obtiene la menor cantidad de votos en las casillas mayoritariamente no urbanas.
+
+```{r}
+#| label: ine resultados por estado seccion min
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-cap: "Estados y tipo de casilla con la menor cantidad de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum"
+
+# ratio 100 claudia por estado casilla min
+dt_01 |> 
+  summarize(across(c(xochitl, claudia),
+                   \(x) sum(x, na.rm = TRUE)),
+            .by = c(entidad, casilla)) |> 
+  mutate(ratio_claudia100 = (xochitl / claudia) * 100) |> 
+  slice_min(order_by = ratio_claudia100, n = 6, with_ties = FALSE) |> 
+  select(-c(xochitl, claudia)) |> 
+  gt()
+```
+
+
+
+
+
+
+
+
+

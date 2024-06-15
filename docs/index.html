@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -91,11 +111,11 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Acerca de</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -109,7 +129,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#conocimiento" id="toc-conocimiento" class="nav-link active" data-scroll-target="#conocimiento">Conocimiento</a></li>
+  <li><a href="#historias" id="toc-historias" class="nav-link" data-scroll-target="#historias">Historias</a></li>
+  <li><a href="#casos-de-uso" id="toc-casos-de-uso" class="nav-link" data-scroll-target="#casos-de-uso">Casos de uso</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -146,11 +174,39 @@ Tip
 <p>Necesitamos información para tomar decisiones. Sólo tenemos los datos. Es necesario hacer el trabajo.</p>
 </div>
 </div>
+<section id="conocimiento" class="level2">
+<h2 class="anchored" data-anchor-id="conocimiento">Conocimiento</h2>
+<p>El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento <span class="citation" data-cites="rfds2">(<a href="#ref-rfds2" role="doc-biblioref">Wickham, Çetinkaya-Rundell, y Grollemund 2023</a>)</span>.</p>
+</section>
+<section id="historias" class="level2">
+<h2 class="anchored" data-anchor-id="historias">Historias</h2>
+<p>Una de las formas más humanas para compartir conocimiento son, precisamente, las historias.</p>
+<p>Para contar una historia a partir de los datos, deben considerarse los cuestionamientos siguientes <span class="citation" data-cites="tell_stories">(<a href="#ref-tell_stories" role="doc-biblioref">Alexander 2023</a>)</span>.</p>
+<ol type="1">
+<li>¿Quién generó el conjunto de datos y con qué objeto?</li>
+<li>¿Cómo se generaron los datos?</li>
+<li>¿Qué es lo que el conjunto de datos intenta decir y cómo podemos hacer que lo diga?</li>
+<li>¿Qué es lo que esperamos que los demás conozcan a partir de los datos y cómo podríamos convencerles de ello?</li>
+<li>¿Quiénes se verían afectados por el proceso de análisis y por sus resultados? ¿Cómo podríamos involucrarse en el análisis?</li>
+</ol>
+</section>
+<section id="casos-de-uso" class="level2">
+<h2 class="anchored" data-anchor-id="casos-de-uso">Casos de uso</h2>
 <p><a href="./patron_homicidios.html">Patrones de Homicidios Dolosos</a></p>
+<p><a href="./eleccion.html">Resultados de la Elección Presidencial 2024</a></p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-tell_stories" class="csl-entry" role="listitem">
+Alexander, Rohan. 2023. <em>Telling Stories with Data</em>. CRC Press.
+</div>
+<div id="ref-rfds2" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundell, y Garret Grollemund. 2023. <em>R For Data Science (2e)</em>. O’Reilly.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
