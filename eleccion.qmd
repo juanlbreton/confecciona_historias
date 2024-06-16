@@ -32,9 +32,12 @@ library(gt)
 #| message: false
 #| warning: false
 
+# importa archivos
+load("raw_data/resul_elec.RData")
+
 # importa dataset
-dt_01 <- 
-  read_rds("raw_data/casillas_2024.rds")
+# dt_01 <- 
+#   read_rds("raw_data/casillas_2024.rds")
 ```
 
 El dataset contiene los datos de las `r format(nrow(dt_01), big.mark = ",")` casillas correspondientes a cada una de las `r format(length(unique(dt_01$seccion)), big.mark = ",")` secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset.
@@ -50,10 +53,9 @@ gt(dt_01 |>
      slice_sample(n = 10))
 ```
 
-Además de la identificación de la casilla y de la sección, el dataset ha sido modificado de acuerdo con el algoritmo publicado por el INE para mostrar el número de votos emitidos, los votos nulos, los votos válidos y los votos por cada una de las  candidatas punteras.
+Además de la identificación de la casilla y de la sección, el dataset ha sido modificado de acuerdo con el algoritmo publicado por el INE para mostrar el número de votos emitidos, los votos nulos, los votos válidos y los votos por cada una de las candidatas punteras.
 
 Es importante destacar que este dataset no tiene incertidumbre, porque, estadísticamente hablando, la elección constituye un censo.
-
 
 ### Resultados totales
 
@@ -77,7 +79,6 @@ dt_01 |>
                format.args = list(big.mark = ',')) |> 
   kableExtra::kable_styling(full_width = FALSE, position = "center")
 ```
-
 
 ### Resultados por entidad y sección
 
@@ -119,7 +120,6 @@ dt_01 |>
   theme_breton() +
   theme(legend.position = 'top') 
 ```
-
 
 Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum, aunque los votos no urbanos parecen hacerlo en mayor proporción.
 
@@ -163,11 +163,44 @@ dt_01 |>
   gt()
 ```
 
+### Comparación de resultados respecto del Grado de Rezago Social
 
+Con los datos del Grado de Rezago Social del CONEVAL (2020) podemos explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.
 
+```{r}
+#| label: ine diferente
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Proporciones de votos en razón del Grado de Rezago Social de la entidad"
 
+# plot de comparación de proporciones
+tbl_compara_prop |>
+  ggplot(aes(x = grado_de_rezago_social, 
+             y = proporcion)) +
+  geom_pointrange(aes(ymin = low, 
+                      ymax = hig, 
+                      color = candidata),
+                  alpha = 0.85, 
+                  size = 0.85) +
+  geom_text(aes(label = scales::percent(proporcion, accuracy = 0.1)),
+            hjust = -0.45,
+            family = "Encode Sans Condensed",
+            size = 2.8,
+            color = "grey60") +
+  scale_color_manual(values = c("darkgreen", "darkorange"),
+                     labels = c("Claudia Sheinbaum", "Xóchilt Gálvez"),
+                     name = "Candidata") +
+  labs(title = "Proporción de Votos a Favor de cada Candidata",
+       subtitle = "Por grado de rezago social de la entidad federativa. El rango representa 2 desviaciones estándar.",
+       x = "Grado de Rezago Social",
+       y = "Proporción de votos",
+       caption = "Fuente: INE Cómputos Distritales 2024 
+       Presidencia de la República; CONEVAL, Índice de Rezago Social 2020; <br>
+         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+  theme_breton() +
+  theme(legend.position = 'top') +
+  scale_y_continuous(labels = scales::percent_format())
+```
 
-
-
-
-
+En principio, parace que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez.

@@ -11,7 +11,11 @@ Es necesario hacer el trabajo.
 
 ## Conocimiento
 
-El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento [@rfds2].
+El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento [@rfds2]. 
+
+Sin embargo, la transformación de datos en conocimiento no ocurre de forma automática. Se requiere del trabajo de profesionales practicantes de la Ciencia de Datos que se adhieren a una implementación sistemática y basada en principios de métodos estadísticos mediante procesamientos computacionales eficientes[@hiring_gambit].
+
+
 
 ## Historias
 
@@ -27,6 +31,9 @@ Para contar una historia a partir de los datos, deben considerarse los cuestiona
 
 ## Casos de uso
 
+[Resultados de la Elección Presidencial 2024](eleccion.qmd)
+
 [Patrones de Homicidios Dolosos](patron_homicidios.qmd)
 
-[Resultados de la Elección Presidencial 2024](eleccion.qmd)
+
+

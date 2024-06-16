@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Caso 1
+# Heatmap Valores Absolutos
 
 ## Row 
 
@@ -91,7 +91,7 @@ htmltools::includeMarkdown("hom_l1_text.md")
 ```
 
 
-# Caso 2
+# Heatmap Valores Relativos
 
 ## Row 
 
