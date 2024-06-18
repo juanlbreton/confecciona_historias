@@ -204,3 +204,191 @@ tbl_compara_prop |>
 ```
 
 En principio, parace que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez.
+
+Considerando uno de los componentes del Rezago Social, en particular, la proporción de personas mayores de 15 que no saben leer ni escribir.
+
+```{r}
+#| label: ine relacion analfabeta con ratio
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Relación entre la proporción de personas analfabetas y el ratio de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum"
+
+# ratio por población analfabeta
+dt_irs |> 
+  mutate(across(pob_analfabeta:sin_refrigerador,
+                as.numeric)) |>
+  mutate(entidad_federativa = str_to_upper(entidad_federativa)) |> 
+  ggplot(aes(x = pob_analfabeta / 100, y = ratio_claudia100)) +
+  geom_point(aes(color = grado_de_rezago_social),
+             alpha = 0.65, 
+             size = 4.25) +
+  geom_text_repel(aes(label = entidad_federativa), 
+                  nudge_x = 0.0075, 
+                  nudge_y = 0.006,
+                  family = 'Encode Sans Condensed',
+                  color = "grey35",
+                  size = 2.5,
+                  segment.color = "grey35",
+                  segment.size = 0.15) +
+  geom_smooth(method = "lm", se = FALSE, color = "darkred",
+              linewidth = 0.35) +
+  theme_breton() +
+  theme(legend.position = 'top',
+        axis.title = element_text(size = 8.5)) +
+  labs(title = "Xóchilt obtiene menos votos en entidades con mayor rezago social",
+       subtitle = "Proporción de población analfabeta en la entidad federativa",
+       x = "Proporción de población analfabeta",
+       y = "Votos por Xóchitl Gálvez por cada 100 votos por Claudia Sheinbaum",
+       caption = "Fuente: INE Cómputos Distritales 2024 
+       Presidencia de la República; CONEVAL, Índice de Rezago Social 2020; <br>
+         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton",
+       color = "Grado de Rezago Social") +
+  scale_x_continuous(labels = scales::percent_format())
+```
+
+### Comparación de resultados con datos del Índice de Competitividad Estatal
+
+A partir de los datos del Índice de Competitividad Estatal (2024) del Instituto Mexicano para la Competitividad (IMCO) también podemos explorar relaciones con los resultados de la elección presidencial.
+
+La comparación de la proporción de votación a favor de cada candidatura respecto del nivel de competitivad del estado muestra un patrón interesante.
+
+```{r}
+#| label: ine compara propor con ice
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Relación entre la proporción de personas analfabetas y el ratio de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum"
+
+# niveles de color
+col_niv <- c("Muy alta" = "#509469", 
+             "Alta" = "#72CB81",
+             "Media alta" = "#F6DB62", 
+             "Media baja" = "#EF9F41", 
+             "Baja" = "#D65372", 
+             "Muy baja" = "#7E1F36")
+
+# proporcion de votos contra ice
+dt_ice |> 
+  mutate(pct_xochitl = xochitl / total_votos_calculados,
+         pct_claudia = claudia / total_votos_calculados) |>
+  ggplot(aes(x = pct_xochitl, y = pct_claudia)) +
+  geom_point(aes(color = indice),
+             alpha = 0.75, 
+             size = 4.25) +
+  geom_text_repel(aes(label = entidad), 
+                  nudge_x = 0.0085, 
+                  nudge_y = 0.0085,
+                  family = 'Encode Sans Condensed',
+                  color = "grey35",
+                  size = 2.5,
+                  segment.color = "grey35",
+                  segment.size = 0.15,
+                  min.segment.length = 0.65) +
+  geom_abline(color = "darkblue", linewidth = 0.65) +
+  scale_color_manual(values = col_niv) +
+  labs(title = "Proporción de Votos a Favor de cada Candidata",
+       subtitle = "Por entidad federativa e índice de competitividad",
+       x = "Proporción de votos a favor de Xóchitl Gálvez",
+       y = "Proporción de votos a favor de Claudia Sheinbaum",
+       caption = "Fuente: INE Cómputos Distritales 2024 Presidencia de la República; 
+       IMCO ICE 2024, 
+         <br>
+         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton",
+       color = "Índice de Competitividad Estatal") +
+  theme_breton() +
+  theme(legend.position = 'top',
+        axis.title = element_text(size = 8.5)) +
+  scale_x_continuous(labels = scales::percent_format(),
+                     limits = c(0.05, .6)) +
+  scale_y_continuous(labels = scales::percent_format())
+```
+
+La comparación de la media de la proporción para cada candidatura en relación con el nivel de competitividad da cuenta de una confusión que ocurre con cierta regularidad.
+
+```{r}
+#| label: ine diferencia en proporción
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Comparación de proporciones entre cadidatas en razón del Índice de Competitividad Estatal"
+
+# diferencia en proporcion por competitividad del estado
+dt_ice |> 
+  mutate(pct_xochitl = xochitl / total_votos_calculados,
+         pct_claudia = claudia / total_votos_calculados) |>
+  summarize(across(pct_xochitl:pct_claudia,
+                   .fns = mean),
+            .by = indice) |> 
+  mutate(dife = (pct_claudia - pct_xochitl) / pct_xochitl) |> 
+  pivot_longer(cols = c(pct_xochitl:pct_claudia),
+               names_to = 'candidata',
+               values_to = 'proporcion') |>
+  ggplot(aes(x = indice, 
+             y = proporcion)) +
+  geom_segment(data = dt_ice |> 
+                 mutate(pct_xochitl = xochitl / total_votos_calculados,
+                        pct_claudia = claudia / total_votos_calculados) |>
+                 summarize(across(pct_xochitl:pct_claudia,
+                                  .fns = mean),
+                           .by = indice),
+               aes(x = indice, xend = indice,
+                   y = pct_xochitl, yend = pct_claudia),
+               alpha = 0.25,
+               linewidth = 3,
+               color = "grey60") +
+  geom_point(aes(color = candidata),
+             alpha = 0.75, 
+             size = 5.25) +
+  geom_text(aes(label = scales::percent(proporcion, accuracy = 0.1)),
+            hjust = -0.45,
+            family = "Encode Sans Condensed",
+            size = 2.8,
+            color = "grey60") +
+  scale_color_manual(values = c("darkgreen", "darkorange"),
+                     labels = c("Claudia Sheinbaum", "Xóchilt Gálvez"),
+                     name = "Candidata") +
+  labs(title = "Proporción Media de Votos a Favor de cada Candidata",
+       subtitle = "Por índice de competitividad de la entidad federativa",
+       x = "Índice de Competitividad Estatal",
+       y = "Proporción de votos",
+       caption = "Fuente: INE Cómputos Distritales 2024 
+       Presidencia de la República; IMCO, Índice de
+       Competitividad Estatal 2024; <br>
+         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+  theme_breton() +
+  theme(legend.position = 'top') +
+  scale_y_continuous(labels = scales::percent_format())
+```
+
+La tabla muestra la diferencia entre las medias de las proporciones de cada candidatura.
+
+```{r}
+#| label: ine diferencia tbl
+#| echo: false
+#| message: false
+#| warning: false
+#| tbl-cap: "Diferencia en las proporciones de votos en razón del Índice de Competitivad Estatal"
+
+
+tbl_dif <- 
+  dt_ice |> 
+  mutate(pct_xochitl = xochitl / total_votos_calculados,
+         pct_claudia = claudia / total_votos_calculados) |>
+  summarize(across(pct_xochitl:pct_claudia,
+                   .fns = mean),
+            .by = indice) |> 
+  mutate(dife = (pct_claudia - pct_xochitl) / pct_xochitl) |> 
+  mutate(dife = dife * 100)
+
+
+tbl_dif |> 
+  arrange(match(indice,
+                c('Muy alta', 'Alta', 
+                  'Media alta', 'Media baja',
+                  'Baja', 'Muy baja'))) |> 
+  select(-c(pct_xochitl, pct_claudia)) |> 
+  select("Índice de Competititividad Estatal" = indice, 
+         "Diferencia en Prorpociones " = dife) |>
+  gt::gt()
+```
