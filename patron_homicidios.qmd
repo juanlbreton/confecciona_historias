@@ -2,7 +2,7 @@
 title: "Patrones de Homicidios en México"
 format:
   dashboard:
-    logo: images/lytica_logo_black_nobk.png
+    logo: images/lytica_logo_whit_bk.png
 editor_options: 
   chunk_output_type: console
 ---

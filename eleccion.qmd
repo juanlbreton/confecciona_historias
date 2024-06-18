@@ -184,7 +184,7 @@ dt_01 |>
 
 ### Comparación de resultados respecto del Grado de Rezago Social
 
-Con los datos del Grado de Rezago Social del CONEVAL (2020) podemos explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.
+Con los datos del Grado de Rezago Social del Consejo Nacional de Evaluación de la Política de Desarrollo Social CONEVAL (2020) podemos explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.
 
 ```{r}
 #| label: ine diferente
@@ -419,4 +419,6 @@ La votación a favor de Claudia Sheinbaum es significativa en casi todos los est
 
 Sin embargo, al analizar más detalladamente la brecha entre la proporción de votos a favor de Sheinbaum y Gálvez, se observa una dinámica interesante. Esta brecha, o diferencia en el porcentaje de apoyo entre ambas candidatas, se amplía considerablemente en los estados con mayores niveles de rezago social. En estas regiones, donde las carencias en términos de infraestructura, educación y servicios básicos son más pronunciadas, la proporción de votos a favor de Sheinbaum supera por un margen más amplio al apoyo hacia Gálvez. Esto sugiere que los sectores más desfavorecidos y vulnerables de la población pueden percibir en Sheinbaum una mayor afinidad con sus necesidades y aspiraciones.
 
-De manera similar, la brecha entre los votos a favor de Sheinbaum y Gálvez también se amplifica en los estados con baja competitividad estatal. Estos estados, que enfrentan desafíos significativos en términos de crecimiento económico, inversión y desarrollo empresarial, muestran una tendencia a favorecer más a Sheinbaum. Esto podría indicar que su propuesta política resuena más con las preocupaciones de estas regiones, que buscan soluciones más urgentes y efectivas para mejorar sus condiciones socioeconómicas. En resumen, aunque Sheinbaum cuenta con un respaldo amplio a nivel nacional, su ventaja se intensifica en los contextos de mayor rezago social y baja competitividad estatal, destacando una segmentación del voto basada en las disparidades socioeconómicas y regionales.
+De manera similar, la brecha entre los votos a favor de Sheinbaum y Gálvez también se amplifica en los estados con baja competitividad estatal. Estos estados, que enfrentan desafíos significativos en términos de crecimiento económico, inversión y desarrollo empresarial, muestran una tendencia a favorecer más a Sheinbaum. Esto podría indicar que su propuesta política resuena más con las preocupaciones de estas regiones, que buscan soluciones más urgentes y efectivas para mejorar sus condiciones socioeconómicas.
+
+Aunque Sheinbaum cuenta con un respaldo amplio a nivel nacional, su ventaja se intensifica en los contextos de mayor rezago social y baja competitividad estatal, destacando una segmentación del voto basada en las disparidades socioeconómicas y regionales.

@@ -1,0 +1,231 @@
+---
+title: "Desempeño de la Economía Mexicana"
+format:
+  dashboard:
+    logo: images/lytica_logo_white_bk.png
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Histórico
+
+## Row
+
+```{r}
+#| label: librerías
+
+library(tidyverse)
+library(styleBreton)
+
+```
+
+
+### Column {width=35%}
+
+::: {.card title="Últimos indicadores"}
+
+```{r}
+#| label: indicador 12
+
+# importa datos
+load("raw_data/pib_nal_b2018.RData")
+
+val_actual <- 
+  df_pib_escala |> 
+  slice_max(order_by = fecha_final) |> 
+  pull(valor)
+
+val_anio_ant <- 
+  df_pib_escala |> 
+  filter(fecha_final == max(fecha_final) - years(1)) |> 
+  pull(valor)
+
+
+bslib::value_box(
+  'Tasa de crecimiento últimos 12 meses',
+  theme = 'primary',
+  value = scales::percent((val_actual / val_anio_ant) - 1, 
+                          accuracy = 0.01),
+)
+
+```
+
+
+```{r}
+#| label: indicador trim
+
+val_trim_ant <- 
+  df_pib_escala |> 
+  filter(presidente == "López") |> 
+  select(-presidente) |> 
+  mutate(ante = lag(valor)) |> 
+  slice_max(order_by = fecha_final) |> 
+  pull(ante)
+
+bslib::value_box(
+  'Tasa de crecimiento último trimestre',
+  theme = 'primary',
+  value = scales::percent((val_actual - val_trim_ant) / val_trim_ant, 
+                          accuracy = 0.01)
+)
+
+```
+
+
+:::
+
+### Column {width=65%}
+
+::: {.card title="Desempeño Histórico de la Economía"}
+
+```{r}
+#| label : desempeño-histórico
+
+# Visualización de la serie con tendencia
+df_pib |> 
+  mutate(predic = predict(tendencia, newdata = df_pib)) |>
+  ggplot(aes(x = trimestre, 
+             y = valor)) +
+  geom_line(aes(color = "pib"),
+            alpha = 0.8,
+            linewidth = 0.65) +
+  geom_smooth(aes(y = predic, 
+                  color = "tendencia"),
+              linewidth = 0.35, 
+              method = "lm") +
+  geom_vline(xintercept = df_pib |> 
+               filter(trimestre == 2018.2) |>
+               pull(trimestre),
+            color = "grey30",
+            alpha = 0.5) +
+  annotate(geom = "text",
+           label = "Elección de López Obrador",
+           x = 2018.2 - 0.5, 
+           y = 19050000,
+           family = "Encode Sans Condensed",
+           color = "grey30",
+           size = 3.0,
+           angle = 90) +
+  # annotate(geom = "text",
+  #          label = paste("Diferencia ", 
+  #                        scales::percent(dif_tend, accuracy = 0.1)),
+  #          x = 2018, 
+  #          y = 25050000,
+  #          family = "Encode Sans Condensed",
+  #          color = "grey30",
+  #          size = 3.0) +
+  labs(title = "Desempeño Histórico de la Economía Mexicana",
+       subtitle = "La línea roja refleja la tendencia histórica hasta la última elección presidencial.",
+       x = "Año.Trimestre",
+       y = "PIB (Miles de millones de pesos)",
+       caption = "Fuente: INEGI, 
+           Producto interno bruto trimestral. Miles de millones de pesos a precios de 2018. 
+           Series desestacionalizadas. Último registro 1T 2024.<br>
+           Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton" ) +
+  theme_breton() +
+  theme(legend.position = "none") +
+  scale_color_manual(name = NULL,
+                     aesthetics = "color",
+                     values = c("steelblue", "darkred"),
+                     labels = c("PIB trimestral", "Tendencia lineal")) +
+  scale_y_continuous(labels = scales::dollar_format(big.mark = ",",
+                                                    scale = 1 / 1e3)) +
+  scale_x_continuous(breaks = seq(min(df_pib$trimestre),
+                                  max(df_pib$trimestre),
+                                  by = 6))
+```
+
+:::
+
+
+# Comparado
+
+## Row
+
+### Column {width=50%}
+
+::: {.card title="Desempeño Comparado"}
+
+```{r}
+#| label: desempeño-comparado
+
+# Visualización escalada
+df_pib_escala |> 
+  ggplot(aes(x = num_trimestre, 
+             y = valor_escalado, 
+             color = presidente)) +
+  geom_line(alpha = 0.75) +
+  geom_hline(yintercept = 00,
+             color = "darkgrey",
+             alpha = 0.5) +
+  labs(title = "Desempeño de la Economía Mexicana en cada Periodo Presidencial",
+       subtitle = "Producto Interno Bruto escalado.",
+       x = "Trimestre",
+       y = "Índice 0 = Inicio de cada sexenio",
+       caption = "Fuente: INEGI, 
+           Producto interno bruto trimestral. Precios de 2018. 
+           Series desestacionalizadas. Última observación 1T 2024.<br>
+           Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton" ) +
+  theme_breton() +
+  theme(legend.position = "top") +
+  scale_color_manual(name = "Presidente",
+                     values = c("#34495E", "#F39C12", "#16A085", 
+                                "#8E44AD", "#C0392B")) +
+  scale_x_continuous(breaks = seq(min(df_pib_escala$num_trimestre),
+                                  max(df_pib_escala$num_trimestre)))
+```
+
+
+
+:::
+
+### Column {width=50%}
+
+::: {.card title="Tasa de Crecimiento Promedio"}
+
+```{r}
+#| label: tasa promedio
+
+df_tasa_sexenal |> 
+  ggplot(aes(x = presidente, y = tasa_promedio, color = presidente)) +
+  geom_point(size = 4.5, 
+             alpha = 0.75) +
+  geom_segment(aes(x = presidente, xend = presidente, 
+                   y = 0, yend = tasa_promedio),
+               alpha = 0.4,
+               linewidth = 4.5) +
+  geom_text(aes(label = scales::percent(tasa_promedio, accuracy = 0.01)),
+            family = "Encode Sans Condensed",
+            size = 3.25,
+            vjust = -0.50,
+            hjust = -0.25,
+            color = "grey10") +
+  geom_hline(yintercept = mean(df_tasa_sexenal$tasa_promedio),
+             color = "grey60", linewidth = 4.5, alpha = 0.25) +
+  annotate(geom = "text",
+           x = 0.65, 
+           y = mean(df_tasa_sexenal$tasa_promedio),
+           label = scales::percent(mean(df_tasa_sexenal$tasa_promedio),
+                                   accuracy = 0.01),
+           size = 3.25,
+           color = "grey45") +
+  labs(title = "Tasa Anual Promedio de Crecimiento de la Economía Mexicana",
+       subtitle = "Durante el sexenio de cada uno de los últimos 5 Presidentes.",
+       x = NULL,
+       y = "Tasa anual promedio",
+       caption = "Fuente: INEGI, 
+           Producto interno bruto trimestral. Precios de 2018. 
+           Series desestacionalizadas. Última observación 1T 2024.<br>
+           Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton" ) +
+  scale_color_manual(values = c("#34495E", "#F39C12", "#16A085", 
+                                "#8E44AD", "#C0392B")) +
+  theme_breton() +
+  theme(legend.position = "none") +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 0.1))
+```
+
+
+:::
+
+
