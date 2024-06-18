@@ -4,16 +4,19 @@ bibliography: refer.bib
 favicon: images/favicon_jlbe.jpg
 ---
 
-::: callout-tip
-Necesitamos información para tomar decisiones. Sólo tenemos los datos. 
-Es necesario hacer el trabajo.
-:::
+
 
 ## Conocimiento
 
 El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento [@rfds2]. 
 
 Sin embargo, la transformación de datos en conocimiento no ocurre de forma automática. Se requiere del trabajo de profesionales practicantes de la Ciencia de Datos que se adhieren a una implementación sistemática y basada en principios de métodos estadísticos mediante procesamientos computacionales eficientes[@hiring_gambit].
+
+
+::: callout-tip
+Necesitamos información para tomar decisiones. Sólo tenemos los datos. 
+Es necesario hacer el trabajo.
+:::
 
 
 

@@ -80,6 +80,25 @@ dt_01 |>
   kableExtra::kable_styling(full_width = FALSE, position = "center")
 ```
 
+#### Porcentaje de participación
+
+```{r}
+#| label: ine resultados participacion
+#| echo: false
+#| message: false
+#| warning: false
+
+# porcentaje de votación
+dt_01 |> 
+  summarize(across(c(total_votos_calculados, lista_nominal),
+                   \(x) sum(x, na.rm = TRUE))) |> 
+  mutate(pct_votacion = total_votos_calculados / lista_nominal) |> 
+  select('Votos Totales' = total_votos_calculados,
+         'Lista Nominal' = lista_nominal,
+         'Participación (%)' = pct_votacion) |> 
+  knitr::kable(format.args = list(big.mark = ","))
+```
+
 ### Resultados por entidad y sección
 
 La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.
@@ -188,7 +207,7 @@ tbl_compara_prop |>
             family = "Encode Sans Condensed",
             size = 2.8,
             color = "grey60") +
-  scale_color_manual(values = c("darkgreen", "darkorange"),
+  scale_color_manual(values = c("#950E03", "#338BF6"),
                      labels = c("Claudia Sheinbaum", "Xóchilt Gálvez"),
                      name = "Candidata") +
   labs(title = "Proporción de Votos a Favor de cada Candidata",
@@ -221,14 +240,14 @@ dt_irs |>
   mutate(entidad_federativa = str_to_upper(entidad_federativa)) |> 
   ggplot(aes(x = pob_analfabeta / 100, y = ratio_claudia100)) +
   geom_point(aes(color = grado_de_rezago_social),
-             alpha = 0.65, 
+             alpha = 0.805, 
              size = 4.25) +
   geom_text_repel(aes(label = entidad_federativa), 
                   nudge_x = 0.0075, 
                   nudge_y = 0.006,
                   family = 'Encode Sans Condensed',
                   color = "grey35",
-                  size = 2.5,
+                  size = 2.25,
                   segment.color = "grey35",
                   segment.size = 0.15) +
   geom_smooth(method = "lm", se = FALSE, color = "darkred",
@@ -236,6 +255,7 @@ dt_irs |>
   theme_breton() +
   theme(legend.position = 'top',
         axis.title = element_text(size = 8.5)) +
+  scale_color_brewer(palette = "Set2") +
   labs(title = "Xóchilt obtiene menos votos en entidades con mayor rezago social",
        subtitle = "Proporción de población analfabeta en la entidad federativa",
        x = "Proporción de población analfabeta",
@@ -274,14 +294,14 @@ dt_ice |>
          pct_claudia = claudia / total_votos_calculados) |>
   ggplot(aes(x = pct_xochitl, y = pct_claudia)) +
   geom_point(aes(color = indice),
-             alpha = 0.75, 
+             alpha = 0.805, 
              size = 4.25) +
   geom_text_repel(aes(label = entidad), 
                   nudge_x = 0.0085, 
                   nudge_y = 0.0085,
                   family = 'Encode Sans Condensed',
                   color = "grey35",
-                  size = 2.5,
+                  size = 2.25,
                   segment.color = "grey35",
                   segment.size = 0.15,
                   min.segment.length = 0.65) +
@@ -345,7 +365,7 @@ dt_ice |>
             family = "Encode Sans Condensed",
             size = 2.8,
             color = "grey60") +
-  scale_color_manual(values = c("darkgreen", "darkorange"),
+  scale_color_manual(values = c("#950E03", "#338BF6"),
                      labels = c("Claudia Sheinbaum", "Xóchilt Gálvez"),
                      name = "Candidata") +
   labs(title = "Proporción Media de Votos a Favor de cada Candidata",
@@ -368,7 +388,7 @@ La tabla muestra la diferencia entre las medias de las proporciones de cada cand
 #| echo: false
 #| message: false
 #| warning: false
-#| tbl-cap: "Diferencia en las proporciones de votos en razón del Índice de Competitivad Estatal"
+#| tbl-cap: "Diferencia en las proporciones de votos en razón del Índice de Competitivad Estatal 2024"
 
 
 tbl_dif <- 
@@ -389,6 +409,14 @@ tbl_dif |>
                   'Baja', 'Muy baja'))) |> 
   select(-c(pct_xochitl, pct_claudia)) |> 
   select("Índice de Competititividad Estatal" = indice, 
-         "Diferencia en Prorpociones " = dife) |>
+         "Diferencia en Proporciones " = dife) |>
   gt::gt()
 ```
+
+## Conclusión
+
+La votación a favor de Claudia Sheinbaum es significativa en casi todos los estados, mostrando un respaldo amplio y consistente en diversas regiones del país. Esta tendencia se mantiene uniforme independientemente de los grados de rezago social definidos por el Consejo Nacional de Evaluación de la Política de Desarrollo Social (CONEVAL) y de los niveles de competitividad estatal medidos por el Instituto Mexicano para la Competitividad (IMCO). Es decir, la preferencia por Sheinbaum se observa tanto en estados con altos niveles de desarrollo y competitividad, como en aquellos con mayores carencias y menor competitividad económica.
+
+Sin embargo, al analizar más detalladamente la brecha entre la proporción de votos a favor de Sheinbaum y Gálvez, se observa una dinámica interesante. Esta brecha, o diferencia en el porcentaje de apoyo entre ambas candidatas, se amplía considerablemente en los estados con mayores niveles de rezago social. En estas regiones, donde las carencias en términos de infraestructura, educación y servicios básicos son más pronunciadas, la proporción de votos a favor de Sheinbaum supera por un margen más amplio al apoyo hacia Gálvez. Esto sugiere que los sectores más desfavorecidos y vulnerables de la población pueden percibir en Sheinbaum una mayor afinidad con sus necesidades y aspiraciones.
+
+De manera similar, la brecha entre los votos a favor de Sheinbaum y Gálvez también se amplifica en los estados con baja competitividad estatal. Estos estados, que enfrentan desafíos significativos en términos de crecimiento económico, inversión y desarrollo empresarial, muestran una tendencia a favorecer más a Sheinbaum. Esto podría indicar que su propuesta política resuena más con las preocupaciones de estas regiones, que buscan soluciones más urgentes y efectivas para mejorar sus condiciones socioeconómicas. En resumen, aunque Sheinbaum cuenta con un respaldo amplio a nivel nacional, su ventaja se intensifica en los contextos de mayor rezago social y baja competitividad estatal, destacando una segmentación del voto basada en las disparidades socioeconómicas y regionales.
