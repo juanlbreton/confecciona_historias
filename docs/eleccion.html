@@ -67,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -115,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#qué-podemos-saber-de-la-elección-presidencial-2024" id="toc-qué-podemos-saber-de-la-elección-presidencial-2024" class="nav-link active" data-scroll-target="#qué-podemos-saber-de-la-elección-presidencial-2024">¿Qué podemos saber de la elección presidencial 2024?</a></li>
+  <li><a href="#qué-podemos-aprender-de-la-elección-presidencial-2024" id="toc-qué-podemos-aprender-de-la-elección-presidencial-2024" class="nav-link active" data-scroll-target="#qué-podemos-aprender-de-la-elección-presidencial-2024">¿Qué Podemos Aprender de la Elección Presidencial 2024?</a></li>
   <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a>
   <ul class="collapse">
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
@@ -124,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#comparación-de-resultados-respecto-del-grado-de-rezago-social" id="toc-comparación-de-resultados-respecto-del-grado-de-rezago-social" class="nav-link" data-scroll-target="#comparación-de-resultados-respecto-del-grado-de-rezago-social">Comparación de resultados respecto del Grado de Rezago Social</a></li>
   <li><a href="#comparación-de-resultados-con-datos-del-índice-de-competitividad-estatal" id="toc-comparación-de-resultados-con-datos-del-índice-de-competitividad-estatal" class="nav-link" data-scroll-target="#comparación-de-resultados-con-datos-del-índice-de-competitividad-estatal">Comparación de resultados con datos del Índice de Competitividad Estatal</a></li>
   </ul></li>
-  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
   </ul>
 </nav>
     </div>
@@ -150,34 +148,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="qué-podemos-saber-de-la-elección-presidencial-2024" class="level2">
-<h2 class="anchored" data-anchor-id="qué-podemos-saber-de-la-elección-presidencial-2024">¿Qué podemos saber de la elección presidencial 2024?</h2>
-<p>Con los datos de los conteos distritales de la elección presidencial 2024 celebrados en el Instituto Nacional Electoral (INE) es posible examinar algunos de los patrones que se presentaron en el proceso.</p>
+<section id="qué-podemos-aprender-de-la-elección-presidencial-2024" class="level2">
+<h2 class="anchored" data-anchor-id="qué-podemos-aprender-de-la-elección-presidencial-2024">¿Qué Podemos Aprender de la Elección Presidencial 2024?</h2>
+<p>Con los datos de los conteos distritales de la elección presidencial 2024 celebrados en el Instituto Nacional Electoral (INE) es posible examinar algunos de los patrones que se presentaron en el proceso. En particular, se pueden explorar las diferencias en la proporción de votos obtenidos por cada una de las candidatas punteras, Claudia Sheinbaum y Xóchitl Gálvez, en relación con variables socioeconómicas y políticas.</p>
 </section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <section id="dataset" class="level3">
 <h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
-<p>El dataset contiene los datos de las 170,766 casillas correspondientes a cada una de las 6,875 secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset.</p>
+<p>El dataset contiene los datos de las 170,766 casillas correspondientes a cada una de las 6,875 secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset, después de aplicar el algoritmo para la agregación de los votos emitidos para cada una de las candidaturas punteras.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="owdkyylrur" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#owdkyylrur table {
+<div id="jueytfqvge" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jueytfqvge table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#owdkyylrur thead, #owdkyylrur tbody, #owdkyylrur tfoot, #owdkyylrur tr, #owdkyylrur td, #owdkyylrur th {
+#jueytfqvge thead, #jueytfqvge tbody, #jueytfqvge tfoot, #jueytfqvge tr, #jueytfqvge td, #jueytfqvge th {
   border-style: none;
 }
 
-#owdkyylrur p {
+#jueytfqvge p {
   margin: 0;
   padding: 0;
 }
 
-#owdkyylrur .gt_table {
+#jueytfqvge .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -203,12 +201,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_caption {
+#jueytfqvge .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#owdkyylrur .gt_title {
+#jueytfqvge .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -220,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#owdkyylrur .gt_subtitle {
+#jueytfqvge .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -232,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#owdkyylrur .gt_heading {
+#jueytfqvge .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -244,13 +242,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_bottom_border {
+#jueytfqvge .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_col_headings {
+#jueytfqvge .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -265,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_col_heading {
+#jueytfqvge .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -285,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#owdkyylrur .gt_column_spanner_outer {
+#jueytfqvge .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -297,15 +295,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#owdkyylrur .gt_column_spanner_outer:first-child {
+#jueytfqvge .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#owdkyylrur .gt_column_spanner_outer:last-child {
+#jueytfqvge .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#owdkyylrur .gt_column_spanner {
+#jueytfqvge .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -317,11 +315,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#owdkyylrur .gt_spanner_row {
+#jueytfqvge .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#owdkyylrur .gt_group_heading {
+#jueytfqvge .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -347,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#owdkyylrur .gt_empty_group_heading {
+#jueytfqvge .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -362,15 +360,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#owdkyylrur .gt_from_md > :first-child {
+#jueytfqvge .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#owdkyylrur .gt_from_md > :last-child {
+#jueytfqvge .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#owdkyylrur .gt_row {
+#jueytfqvge .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -389,7 +387,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#owdkyylrur .gt_stub {
+#jueytfqvge .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -402,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owdkyylrur .gt_stub_row_group {
+#jueytfqvge .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -416,15 +414,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#owdkyylrur .gt_row_group_first td {
+#jueytfqvge .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#owdkyylrur .gt_row_group_first th {
+#jueytfqvge .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#owdkyylrur .gt_summary_row {
+#jueytfqvge .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -434,16 +432,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owdkyylrur .gt_first_summary_row {
+#jueytfqvge .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_first_summary_row.thick {
+#jueytfqvge .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#owdkyylrur .gt_last_summary_row {
+#jueytfqvge .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -453,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_grand_summary_row {
+#jueytfqvge .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -463,7 +461,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owdkyylrur .gt_first_grand_summary_row {
+#jueytfqvge .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -473,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_last_grand_summary_row_top {
+#jueytfqvge .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -483,11 +481,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_striped {
+#jueytfqvge .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#owdkyylrur .gt_table_body {
+#jueytfqvge .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -496,7 +494,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_footnotes {
+#jueytfqvge .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -510,7 +508,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_footnote {
+#jueytfqvge .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -519,7 +517,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owdkyylrur .gt_sourcenotes {
+#jueytfqvge .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -533,7 +531,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owdkyylrur .gt_sourcenote {
+#jueytfqvge .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -541,63 +539,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owdkyylrur .gt_left {
+#jueytfqvge .gt_left {
   text-align: left;
 }
 
-#owdkyylrur .gt_center {
+#jueytfqvge .gt_center {
   text-align: center;
 }
 
-#owdkyylrur .gt_right {
+#jueytfqvge .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#owdkyylrur .gt_font_normal {
+#jueytfqvge .gt_font_normal {
   font-weight: normal;
 }
 
-#owdkyylrur .gt_font_bold {
+#jueytfqvge .gt_font_bold {
   font-weight: bold;
 }
 
-#owdkyylrur .gt_font_italic {
+#jueytfqvge .gt_font_italic {
   font-style: italic;
 }
 
-#owdkyylrur .gt_super {
+#jueytfqvge .gt_super {
   font-size: 65%;
 }
 
-#owdkyylrur .gt_footnote_marks {
+#jueytfqvge .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#owdkyylrur .gt_asterisk {
+#jueytfqvge .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#owdkyylrur .gt_indent_1 {
+#jueytfqvge .gt_indent_1 {
   text-indent: 5px;
 }
 
-#owdkyylrur .gt_indent_2 {
+#jueytfqvge .gt_indent_2 {
   text-indent: 10px;
 }
 
-#owdkyylrur .gt_indent_3 {
+#jueytfqvge .gt_indent_3 {
   text-indent: 15px;
 }
 
-#owdkyylrur .gt_indent_4 {
+#jueytfqvge .gt_indent_4 {
   text-indent: 20px;
 }
 
-#owdkyylrur .gt_indent_5 {
+#jueytfqvge .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -621,144 +619,144 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="clave_casilla">'020305C0200'</td>
-<td class="gt_row gt_right" headers="id_entidad">02</td>
-<td class="gt_row gt_left" headers="entidad">BAJA CALIFORNIA</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">002</td>
-<td class="gt_row gt_left" headers="distrito_federal">MEXICALI</td>
-<td class="gt_row gt_right" headers="seccion">0305</td>
-<td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">3</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">368</td>
-<td class="gt_row gt_right" headers="lista_nominal">647</td>
-<td class="gt_row gt_right" headers="xochitl">101</td>
-<td class="gt_row gt_right" headers="claudia">233</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="clave_casilla">'260079B0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">26</td>
-<td class="gt_row gt_left" headers="entidad">SONORA</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">002</td>
-<td class="gt_row gt_left" headers="distrito_federal">NOGALES</td>
-<td class="gt_row gt_right" headers="seccion">0079</td>
-<td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">3</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">205</td>
-<td class="gt_row gt_right" headers="lista_nominal">397</td>
-<td class="gt_row gt_right" headers="xochitl">45</td>
-<td class="gt_row gt_right" headers="claudia">137</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="clave_casilla">'030517B0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">03</td>
-<td class="gt_row gt_left" headers="entidad">BAJA CALIFORNIA SUR</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">002</td>
-<td class="gt_row gt_left" headers="distrito_federal">SAN JOSÉ DEL CABO</td>
-<td class="gt_row gt_right" headers="seccion">0517</td>
-<td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">10</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">264</td>
-<td class="gt_row gt_right" headers="lista_nominal">638</td>
-<td class="gt_row gt_right" headers="xochitl">23</td>
-<td class="gt_row gt_right" headers="claudia">216</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="clave_casilla">'210458C0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">21</td>
-<td class="gt_row gt_left" headers="entidad">PUEBLA</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">014</td>
-<td class="gt_row gt_left" headers="distrito_federal">IZÚCAR DE MATAMOROS</td>
-<td class="gt_row gt_right" headers="seccion">0458</td>
-<td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">11</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">432</td>
-<td class="gt_row gt_right" headers="lista_nominal">711</td>
-<td class="gt_row gt_right" headers="xochitl">20</td>
-<td class="gt_row gt_right" headers="claudia">318</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="clave_casilla">'071878B0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">07</td>
-<td class="gt_row gt_left" headers="entidad">CHIAPAS</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">010</td>
-<td class="gt_row gt_left" headers="distrito_federal">VILLAFLORES</td>
-<td class="gt_row gt_right" headers="seccion">1878</td>
-<td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">7</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">306</td>
-<td class="gt_row gt_right" headers="lista_nominal">549</td>
-<td class="gt_row gt_right" headers="xochitl">38</td>
-<td class="gt_row gt_right" headers="claudia">237</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="clave_casilla">'160719C0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">16</td>
-<td class="gt_row gt_left" headers="entidad">MICHOACÁN</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">007</td>
-<td class="gt_row gt_left" headers="distrito_federal">ZACAPU</td>
-<td class="gt_row gt_right" headers="seccion">0719</td>
-<td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">11</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">203</td>
-<td class="gt_row gt_right" headers="lista_nominal">488</td>
-<td class="gt_row gt_right" headers="xochitl">56</td>
-<td class="gt_row gt_right" headers="claudia">85</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="clave_casilla">'280564B0100'</td>
+<td class="gt_row gt_left" headers="clave_casilla">'281908C0500'</td>
 <td class="gt_row gt_right" headers="id_entidad">28</td>
 <td class="gt_row gt_left" headers="entidad">TAMAULIPAS</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">004</td>
-<td class="gt_row gt_left" headers="distrito_federal">H. MATAMOROS</td>
-<td class="gt_row gt_right" headers="seccion">0564</td>
-<td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">4</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">208</td>
-<td class="gt_row gt_right" headers="lista_nominal">399</td>
-<td class="gt_row gt_right" headers="xochitl">50</td>
-<td class="gt_row gt_right" headers="claudia">129</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">002</td>
+<td class="gt_row gt_left" headers="distrito_federal">REYNOSA</td>
+<td class="gt_row gt_right" headers="seccion">1908</td>
+<td class="gt_row gt_left" headers="casilla">No Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">9</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">313</td>
+<td class="gt_row gt_right" headers="lista_nominal">726</td>
+<td class="gt_row gt_right" headers="xochitl">32</td>
+<td class="gt_row gt_right" headers="claudia">243</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="clave_casilla">'010366B0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">01</td>
-<td class="gt_row gt_left" headers="entidad">AGUASCALIENTES</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">001</td>
-<td class="gt_row gt_left" headers="distrito_federal">JESÚS MARÍA</td>
-<td class="gt_row gt_right" headers="seccion">0366</td>
+<td class="gt_row gt_left" headers="clave_casilla">'301313B0100'</td>
+<td class="gt_row gt_right" headers="id_entidad">30</td>
+<td class="gt_row gt_left" headers="entidad">VERACRUZ</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">017</td>
+<td class="gt_row gt_left" headers="distrito_federal">COSAMALOAPAN</td>
+<td class="gt_row gt_right" headers="seccion">1313</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">13</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">348</td>
-<td class="gt_row gt_right" headers="lista_nominal">729</td>
-<td class="gt_row gt_right" headers="xochitl">132</td>
-<td class="gt_row gt_right" headers="claudia">181</td>
+<td class="gt_row gt_right" headers="votos_nulos">5</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">449</td>
+<td class="gt_row gt_right" headers="lista_nominal">746</td>
+<td class="gt_row gt_right" headers="xochitl">43</td>
+<td class="gt_row gt_right" headers="claudia">380</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="clave_casilla">'253168B0100'</td>
+<td class="gt_row gt_left" headers="clave_casilla">'252618C0500'</td>
 <td class="gt_row gt_right" headers="id_entidad">25</td>
 <td class="gt_row gt_left" headers="entidad">SINALOA</td>
 <td class="gt_row gt_right" headers="id_distrito_federal">001</td>
 <td class="gt_row gt_left" headers="distrito_federal">MAZATLÁN</td>
-<td class="gt_row gt_right" headers="seccion">3168</td>
+<td class="gt_row gt_right" headers="seccion">2618</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">3</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">87</td>
-<td class="gt_row gt_right" headers="lista_nominal">156</td>
-<td class="gt_row gt_right" headers="xochitl">17</td>
-<td class="gt_row gt_right" headers="claudia">52</td>
+<td class="gt_row gt_right" headers="votos_nulos">2</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">256</td>
+<td class="gt_row gt_right" headers="lista_nominal">696</td>
+<td class="gt_row gt_right" headers="xochitl">39</td>
+<td class="gt_row gt_right" headers="claudia">200</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="clave_casilla">'040156C0100'</td>
-<td class="gt_row gt_right" headers="id_entidad">04</td>
-<td class="gt_row gt_left" headers="entidad">CAMPECHE</td>
-<td class="gt_row gt_right" headers="id_distrito_federal">001</td>
-<td class="gt_row gt_left" headers="distrito_federal">SAN FRANCISCO DE CAMPECHE</td>
-<td class="gt_row gt_right" headers="seccion">0156</td>
+<td class="gt_row gt_left" headers="clave_casilla">'302222C0100'</td>
+<td class="gt_row gt_right" headers="id_entidad">30</td>
+<td class="gt_row gt_left" headers="entidad">VERACRUZ</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">017</td>
+<td class="gt_row gt_left" headers="distrito_federal">COSAMALOAPAN</td>
+<td class="gt_row gt_right" headers="seccion">2222</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="votos_nulos">14</td>
-<td class="gt_row gt_right" headers="total_votos_calculados">379</td>
-<td class="gt_row gt_right" headers="lista_nominal">541</td>
-<td class="gt_row gt_right" headers="xochitl">16</td>
-<td class="gt_row gt_right" headers="claudia">278</td>
+<td class="gt_row gt_right" headers="votos_nulos">7</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">305</td>
+<td class="gt_row gt_right" headers="lista_nominal">527</td>
+<td class="gt_row gt_right" headers="xochitl">54</td>
+<td class="gt_row gt_right" headers="claudia">233</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="clave_casilla">'130434E0100'</td>
+<td class="gt_row gt_right" headers="id_entidad">13</td>
+<td class="gt_row gt_left" headers="entidad">HIDALGO</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">001</td>
+<td class="gt_row gt_left" headers="distrito_federal">HUEJUTLA DE REYES</td>
+<td class="gt_row gt_right" headers="seccion">0434</td>
+<td class="gt_row gt_left" headers="casilla">No Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">16</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">436</td>
+<td class="gt_row gt_right" headers="lista_nominal">558</td>
+<td class="gt_row gt_right" headers="xochitl">112</td>
+<td class="gt_row gt_right" headers="claudia">292</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="clave_casilla">'270071C0600'</td>
+<td class="gt_row gt_right" headers="id_entidad">27</td>
+<td class="gt_row gt_left" headers="entidad">TABASCO</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">002</td>
+<td class="gt_row gt_left" headers="distrito_federal">HEROICA CÁRDENAS</td>
+<td class="gt_row gt_right" headers="seccion">0071</td>
+<td class="gt_row gt_left" headers="casilla">Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">6</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">375</td>
+<td class="gt_row gt_right" headers="lista_nominal">659</td>
+<td class="gt_row gt_right" headers="xochitl">56</td>
+<td class="gt_row gt_right" headers="claudia">280</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="clave_casilla">'240961C0200'</td>
+<td class="gt_row gt_right" headers="id_entidad">24</td>
+<td class="gt_row gt_left" headers="entidad">SAN LUIS POTOSÍ</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">006</td>
+<td class="gt_row gt_left" headers="distrito_federal">SAN LUIS POTOSÍ</td>
+<td class="gt_row gt_right" headers="seccion">0961</td>
+<td class="gt_row gt_left" headers="casilla">Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">5</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">521</td>
+<td class="gt_row gt_right" headers="lista_nominal">744</td>
+<td class="gt_row gt_right" headers="xochitl">203</td>
+<td class="gt_row gt_right" headers="claudia">248</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="clave_casilla">'170829B0100'</td>
+<td class="gt_row gt_right" headers="id_entidad">17</td>
+<td class="gt_row gt_left" headers="entidad">MORELOS</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">005</td>
+<td class="gt_row gt_left" headers="distrito_federal">YAUTEPEC</td>
+<td class="gt_row gt_right" headers="seccion">0829</td>
+<td class="gt_row gt_left" headers="casilla">No Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">6</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">356</td>
+<td class="gt_row gt_right" headers="lista_nominal">562</td>
+<td class="gt_row gt_right" headers="xochitl">50</td>
+<td class="gt_row gt_right" headers="claudia">261</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="clave_casilla">'021180B0100'</td>
+<td class="gt_row gt_right" headers="id_entidad">02</td>
+<td class="gt_row gt_left" headers="entidad">BAJA CALIFORNIA</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">004</td>
+<td class="gt_row gt_left" headers="distrito_federal">TIJUANA</td>
+<td class="gt_row gt_right" headers="seccion">1180</td>
+<td class="gt_row gt_left" headers="casilla">Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">3</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">277</td>
+<td class="gt_row gt_right" headers="lista_nominal">653</td>
+<td class="gt_row gt_right" headers="xochitl">24</td>
+<td class="gt_row gt_right" headers="claudia">231</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="clave_casilla">'190442C0400'</td>
+<td class="gt_row gt_right" headers="id_entidad">19</td>
+<td class="gt_row gt_left" headers="entidad">NUEVO LEÓN</td>
+<td class="gt_row gt_right" headers="id_distrito_federal">003</td>
+<td class="gt_row gt_left" headers="distrito_federal">GRAL. ESCOBEDO</td>
+<td class="gt_row gt_right" headers="seccion">0442</td>
+<td class="gt_row gt_left" headers="casilla">Urbana</td>
+<td class="gt_row gt_right" headers="votos_nulos">7</td>
+<td class="gt_row gt_right" headers="total_votos_calculados">402</td>
+<td class="gt_row gt_right" headers="lista_nominal">703</td>
+<td class="gt_row gt_right" headers="xochitl">112</td>
+<td class="gt_row gt_right" headers="claudia">175</td>
 </tr>
 </tbody>
 </table>
@@ -766,94 +764,30 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Además de la identificación de la casilla y de la sección, el dataset ha sido modificado de acuerdo con el algoritmo publicado por el INE para mostrar el número de votos emitidos, los votos nulos, los votos válidos y los votos por cada una de las candidatas punteras.</p>
-<p>Es importante destacar que este dataset no tiene incertidumbre, porque, estadísticamente hablando, la elección constituye un censo.</p>
+<p>Es importante destacar que este dataset no tiene incertidumbre, porque dado que, estadísticamente hablando, la elección constituye un censo, no se realizarán inferencias.</p>
 </section>
 <section id="resultados-totales" class="level3">
 <h3 class="anchored" data-anchor-id="resultados-totales">Resultados totales</h3>
 <p>Los resultados totales de la elección presidencial 2024, en número de votos y porcentajes, para las 2 candidaturas punteras se presentan a continuación.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Xóchitl Gálvez</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Claudia Sheinbaum</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Porcentaje Gálvez</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Porcentaje Sheinbaum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">16,502,697</td>
-<td style="text-align: right;">35,924,519</td>
-<td style="text-align: right;">0.2745179</td>
-<td style="text-align: right;">0.5975948</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<section id="porcentaje-de-participación" class="level4">
-<h4 class="anchored" data-anchor-id="porcentaje-de-participación">Porcentaje de participación</h4>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Votos Totales</th>
-<th style="text-align: right;">Lista Nominal</th>
-<th style="text-align: right;">Participación (%)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">60,115,184</td>
-<td style="text-align: right;">98,468,994</td>
-<td style="text-align: right;">0.6104986</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</section>
-<section id="resultados-por-entidad-y-sección" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-por-entidad-y-sección">Resultados por entidad y sección</h3>
-<p>La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="eleccion_files/figure-html/ine resultados por estado seccion-1.png" class="img-fluid figure-img" width="960"></p>
-<figcaption>Proporción de votos a favor de cada candidata por sección electoral</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum, aunque los votos no urbanos parecen hacerlo en mayor proporción.</p>
-<p>Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez acumula la mayor cantidad de votos en casillas mayoritariamente urbanas. Debe destacarse que solo en el estado de Aguascalientes la candidata Gálvez obtiene más votos que la candidata Sheinbaum.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="qnqvjmzezw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qnqvjmzezw table {
+<div id="rjmhfkiuna" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rjmhfkiuna table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qnqvjmzezw thead, #qnqvjmzezw tbody, #qnqvjmzezw tfoot, #qnqvjmzezw tr, #qnqvjmzezw td, #qnqvjmzezw th {
+#rjmhfkiuna thead, #rjmhfkiuna tbody, #rjmhfkiuna tfoot, #rjmhfkiuna tr, #rjmhfkiuna td, #rjmhfkiuna th {
   border-style: none;
 }
 
-#qnqvjmzezw p {
+#rjmhfkiuna p {
   margin: 0;
   padding: 0;
 }
 
-#qnqvjmzezw .gt_table {
+#rjmhfkiuna .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -879,12 +813,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_caption {
+#rjmhfkiuna .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qnqvjmzezw .gt_title {
+#rjmhfkiuna .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -896,7 +830,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#qnqvjmzezw .gt_subtitle {
+#rjmhfkiuna .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -908,7 +842,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#qnqvjmzezw .gt_heading {
+#rjmhfkiuna .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -920,13 +854,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_bottom_border {
+#rjmhfkiuna .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_col_headings {
+#rjmhfkiuna .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -941,7 +875,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_col_heading {
+#rjmhfkiuna .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -961,7 +895,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qnqvjmzezw .gt_column_spanner_outer {
+#rjmhfkiuna .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -973,15 +907,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#qnqvjmzezw .gt_column_spanner_outer:first-child {
+#rjmhfkiuna .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qnqvjmzezw .gt_column_spanner_outer:last-child {
+#rjmhfkiuna .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qnqvjmzezw .gt_column_spanner {
+#rjmhfkiuna .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -993,11 +927,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#qnqvjmzezw .gt_spanner_row {
+#rjmhfkiuna .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qnqvjmzezw .gt_group_heading {
+#rjmhfkiuna .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1023,7 +957,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#qnqvjmzezw .gt_empty_group_heading {
+#rjmhfkiuna .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1038,15 +972,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#qnqvjmzezw .gt_from_md > :first-child {
+#rjmhfkiuna .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qnqvjmzezw .gt_from_md > :last-child {
+#rjmhfkiuna .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qnqvjmzezw .gt_row {
+#rjmhfkiuna .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1065,7 +999,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qnqvjmzezw .gt_stub {
+#rjmhfkiuna .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1078,7 +1012,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qnqvjmzezw .gt_stub_row_group {
+#rjmhfkiuna .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1092,15 +1026,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#qnqvjmzezw .gt_row_group_first td {
+#rjmhfkiuna .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qnqvjmzezw .gt_row_group_first th {
+#rjmhfkiuna .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qnqvjmzezw .gt_summary_row {
+#rjmhfkiuna .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1110,16 +1044,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qnqvjmzezw .gt_first_summary_row {
+#rjmhfkiuna .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_first_summary_row.thick {
+#rjmhfkiuna .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qnqvjmzezw .gt_last_summary_row {
+#rjmhfkiuna .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1129,7 +1063,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_grand_summary_row {
+#rjmhfkiuna .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1139,7 +1073,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qnqvjmzezw .gt_first_grand_summary_row {
+#rjmhfkiuna .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1149,7 +1083,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_last_grand_summary_row_top {
+#rjmhfkiuna .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1159,11 +1093,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_striped {
+#rjmhfkiuna .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qnqvjmzezw .gt_table_body {
+#rjmhfkiuna .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1172,7 +1106,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_footnotes {
+#rjmhfkiuna .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1186,7 +1120,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_footnote {
+#rjmhfkiuna .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1195,7 +1129,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qnqvjmzezw .gt_sourcenotes {
+#rjmhfkiuna .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1209,7 +1143,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qnqvjmzezw .gt_sourcenote {
+#rjmhfkiuna .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1217,108 +1151,1110 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qnqvjmzezw .gt_left {
+#rjmhfkiuna .gt_left {
   text-align: left;
 }
 
-#qnqvjmzezw .gt_center {
+#rjmhfkiuna .gt_center {
   text-align: center;
 }
 
-#qnqvjmzezw .gt_right {
+#rjmhfkiuna .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qnqvjmzezw .gt_font_normal {
+#rjmhfkiuna .gt_font_normal {
   font-weight: normal;
 }
 
-#qnqvjmzezw .gt_font_bold {
+#rjmhfkiuna .gt_font_bold {
   font-weight: bold;
 }
 
-#qnqvjmzezw .gt_font_italic {
+#rjmhfkiuna .gt_font_italic {
   font-style: italic;
 }
 
-#qnqvjmzezw .gt_super {
+#rjmhfkiuna .gt_super {
   font-size: 65%;
 }
 
-#qnqvjmzezw .gt_footnote_marks {
+#rjmhfkiuna .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qnqvjmzezw .gt_asterisk {
+#rjmhfkiuna .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qnqvjmzezw .gt_indent_1 {
+#rjmhfkiuna .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qnqvjmzezw .gt_indent_2 {
+#rjmhfkiuna .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qnqvjmzezw .gt_indent_3 {
+#rjmhfkiuna .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qnqvjmzezw .gt_indent_4 {
+#rjmhfkiuna .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qnqvjmzezw .gt_indent_5 {
+#rjmhfkiuna .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_heading">
+<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Resultados de la Elección Presidencial 2024</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th colspan="2" id="Votos Emitidos" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Votos Emitidos</span></th>
+<th colspan="2" id="Porcentajes" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Porcentajes</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Xóchitl Gálvez" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Xóchitl Gálvez</th>
+<th id="Claudia Sheinbaum" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Claudia Sheinbaum</th>
+<th id="Xóchitl Gálvez" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Xóchitl Gálvez</th>
+<th id="Claudia Sheinbaum" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Claudia Sheinbaum</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="xochitl">16,502,697</td>
+<td class="gt_row gt_right" headers="claudia">35,924,519</td>
+<td class="gt_row gt_right" headers="pct_xochitl">27.4518%</td>
+<td class="gt_row gt_right" headers="pct_claudia">59.7595%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="even">
+<td colspan="4" class="gt_sourcenote">Fuente: INE Cómputos Distritales 2024, Presidencia de la República.<br>
+Modelaje y Visualización: Juan L. Bretón, PMP</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+<section id="porcentaje-de-participación" class="level4">
+<h4 class="anchored" data-anchor-id="porcentaje-de-participación">Porcentaje de participación</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div id="ivgzpnacsu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ivgzpnacsu table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ivgzpnacsu thead, #ivgzpnacsu tbody, #ivgzpnacsu tfoot, #ivgzpnacsu tr, #ivgzpnacsu td, #ivgzpnacsu th {
+  border-style: none;
+}
+
+#ivgzpnacsu p {
+  margin: 0;
+  padding: 0;
+}
+
+#ivgzpnacsu .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ivgzpnacsu .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ivgzpnacsu .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ivgzpnacsu .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ivgzpnacsu .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ivgzpnacsu .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ivgzpnacsu .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ivgzpnacsu .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ivgzpnacsu .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ivgzpnacsu .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ivgzpnacsu .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ivgzpnacsu .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ivgzpnacsu .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ivgzpnacsu .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ivgzpnacsu .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ivgzpnacsu .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ivgzpnacsu .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ivgzpnacsu .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ivgzpnacsu .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ivgzpnacsu .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ivgzpnacsu .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ivgzpnacsu .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ivgzpnacsu .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ivgzpnacsu .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ivgzpnacsu .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ivgzpnacsu .gt_left {
+  text-align: left;
+}
+
+#ivgzpnacsu .gt_center {
+  text-align: center;
+}
+
+#ivgzpnacsu .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ivgzpnacsu .gt_font_normal {
+  font-weight: normal;
+}
+
+#ivgzpnacsu .gt_font_bold {
+  font-weight: bold;
+}
+
+#ivgzpnacsu .gt_font_italic {
+  font-style: italic;
+}
+
+#ivgzpnacsu .gt_super {
+  font-size: 65%;
+}
+
+#ivgzpnacsu .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ivgzpnacsu .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ivgzpnacsu .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ivgzpnacsu .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ivgzpnacsu .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ivgzpnacsu .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ivgzpnacsu .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border">Participación Ciudadana en Elección Presidencial 2024</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th colspan="2" id="Votación" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Votación</span></th>
+<th id="Cálculo" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="col"><span class="gt_column_spanner">Cálculo</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Votos Emitidos" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Votos Emitidos</th>
+<th id="Lista Nominal" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Lista Nominal</th>
+<th id="Porcentaje de Participación" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Porcentaje de Participación</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="total_votos_calculados">60,115,184</td>
+<td class="gt_row gt_right" headers="lista_nominal">98,468,994</td>
+<td class="gt_row gt_right" headers="pct_votacion">61.0499%</td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="even">
+<td colspan="3" class="gt_sourcenote">Fuente: INE Cómputos Distritales 2024, Presidencia de la República.<br>
+Modelaje y Visualización: Juan L. Bretón, PMP</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="resultados-por-entidad-y-sección" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-por-entidad-y-sección">Resultados por entidad y sección</h3>
+<p>La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.</p>
+<p>En el eje de las abcisas se presenta la proporción de votos a favor de Xóchitl Gálvez y en el eje de las ordenadas la proporción de votos a favor de Claudia Sheinbaum. Cada punto representa las casillas de un tipo dentro de cada sección y su color indica si se trata de casillas urbanas o no urbanas. La bisectriz de la gráfica indica el punto en el que ambas candidatas obtienen la misma proporción de votos.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="eleccion_files/figure-html/ine resultados por estado seccion-1.png" class="img-fluid figure-img" width="960"></p>
+<figcaption>Proporción de votos a favor de cada candidata por sección electoral en cada estado</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum en prácticamente todos los estados, aunque los votos no urbanos parecen hacerlo en mayor proporción.</p>
+<p>Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez acumula la mayor cantidad de votos en casillas mayoritariamente urbanas. Debe destacarse que solo en el estado de Aguascalientes la candidata Gálvez obtiene más votos que la candidata Sheinbaum.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="vfkblcnssl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vfkblcnssl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vfkblcnssl thead, #vfkblcnssl tbody, #vfkblcnssl tfoot, #vfkblcnssl tr, #vfkblcnssl td, #vfkblcnssl th {
+  border-style: none;
+}
+
+#vfkblcnssl p {
+  margin: 0;
+  padding: 0;
+}
+
+#vfkblcnssl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vfkblcnssl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vfkblcnssl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vfkblcnssl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vfkblcnssl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vfkblcnssl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vfkblcnssl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vfkblcnssl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vfkblcnssl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vfkblcnssl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vfkblcnssl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vfkblcnssl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vfkblcnssl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vfkblcnssl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vfkblcnssl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfkblcnssl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vfkblcnssl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vfkblcnssl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vfkblcnssl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfkblcnssl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vfkblcnssl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfkblcnssl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vfkblcnssl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfkblcnssl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vfkblcnssl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vfkblcnssl .gt_left {
+  text-align: left;
+}
+
+#vfkblcnssl .gt_center {
+  text-align: center;
+}
+
+#vfkblcnssl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vfkblcnssl .gt_font_normal {
+  font-weight: normal;
+}
+
+#vfkblcnssl .gt_font_bold {
+  font-weight: bold;
+}
+
+#vfkblcnssl .gt_font_italic {
+  font-style: italic;
+}
+
+#vfkblcnssl .gt_super {
+  font-size: 65%;
+}
+
+#vfkblcnssl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vfkblcnssl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vfkblcnssl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vfkblcnssl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vfkblcnssl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vfkblcnssl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vfkblcnssl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>Estados y tipo de casilla con la mayor cantidad de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Votos a favor de X. Gálvez por cada 100 votos a favor de C. Sheinbaum</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Valores máximos</th>
+</tr>
 <tr class="header gt_col_headings">
-<th id="entidad" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">entidad</th>
-<th id="casilla" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">casilla</th>
-<th id="ratio_claudia100" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ratio_claudia100</th>
+<th id="Estado" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Estado</th>
+<th id="Tipo de Casilla" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Tipo de Casilla</th>
+<th id="Ratio Claudia 100" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Ratio Claudia 100</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">AGUASCALIENTES</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">110.11511</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">110.12</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">AGUASCALIENTES</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">102.46851</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">102.47</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">GUANAJUATO</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">89.86334</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">89.86</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">JALISCO</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">85.57071</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">85.57</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">CHIHUAHUA</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">82.31817</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">82.32</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">NUEVO LEÓN</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">82.19109</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">82.19</td>
 </tr>
-</tbody>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="3" class="gt_sourcenote">Fuente: INE Cómputos Distritales 2024, Presidencia de la República.<br>
+Modelaje y Visualización: Juan L. Bretón, PMP</td>
+</tr>
+</tfoot>
+
 </table>
 
 </div>
@@ -1327,23 +2263,23 @@ ul.task-list li input[type="checkbox"] {
 <p>Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez obtiene la menor cantidad de votos en las casillas mayoritariamente no urbanas.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ochkbcwzaw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ochkbcwzaw table {
+<div id="rppmfkakik" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rppmfkakik table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ochkbcwzaw thead, #ochkbcwzaw tbody, #ochkbcwzaw tfoot, #ochkbcwzaw tr, #ochkbcwzaw td, #ochkbcwzaw th {
+#rppmfkakik thead, #rppmfkakik tbody, #rppmfkakik tfoot, #rppmfkakik tr, #rppmfkakik td, #rppmfkakik th {
   border-style: none;
 }
 
-#ochkbcwzaw p {
+#rppmfkakik p {
   margin: 0;
   padding: 0;
 }
 
-#ochkbcwzaw .gt_table {
+#rppmfkakik .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1369,12 +2305,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_caption {
+#rppmfkakik .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ochkbcwzaw .gt_title {
+#rppmfkakik .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1386,7 +2322,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#ochkbcwzaw .gt_subtitle {
+#rppmfkakik .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1398,7 +2334,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#ochkbcwzaw .gt_heading {
+#rppmfkakik .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1410,13 +2346,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_bottom_border {
+#rppmfkakik .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_col_headings {
+#rppmfkakik .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1431,7 +2367,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_col_heading {
+#rppmfkakik .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1451,7 +2387,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ochkbcwzaw .gt_column_spanner_outer {
+#rppmfkakik .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1463,15 +2399,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#ochkbcwzaw .gt_column_spanner_outer:first-child {
+#rppmfkakik .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ochkbcwzaw .gt_column_spanner_outer:last-child {
+#rppmfkakik .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ochkbcwzaw .gt_column_spanner {
+#rppmfkakik .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1483,11 +2419,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#ochkbcwzaw .gt_spanner_row {
+#rppmfkakik .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ochkbcwzaw .gt_group_heading {
+#rppmfkakik .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1513,7 +2449,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#ochkbcwzaw .gt_empty_group_heading {
+#rppmfkakik .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1528,15 +2464,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#ochkbcwzaw .gt_from_md > :first-child {
+#rppmfkakik .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ochkbcwzaw .gt_from_md > :last-child {
+#rppmfkakik .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ochkbcwzaw .gt_row {
+#rppmfkakik .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1555,7 +2491,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ochkbcwzaw .gt_stub {
+#rppmfkakik .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1568,7 +2504,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ochkbcwzaw .gt_stub_row_group {
+#rppmfkakik .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1582,15 +2518,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#ochkbcwzaw .gt_row_group_first td {
+#rppmfkakik .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ochkbcwzaw .gt_row_group_first th {
+#rppmfkakik .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ochkbcwzaw .gt_summary_row {
+#rppmfkakik .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1600,16 +2536,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ochkbcwzaw .gt_first_summary_row {
+#rppmfkakik .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_first_summary_row.thick {
+#rppmfkakik .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ochkbcwzaw .gt_last_summary_row {
+#rppmfkakik .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1619,7 +2555,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_grand_summary_row {
+#rppmfkakik .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1629,7 +2565,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ochkbcwzaw .gt_first_grand_summary_row {
+#rppmfkakik .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1639,7 +2575,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_last_grand_summary_row_top {
+#rppmfkakik .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1649,11 +2585,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_striped {
+#rppmfkakik .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ochkbcwzaw .gt_table_body {
+#rppmfkakik .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1662,7 +2598,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_footnotes {
+#rppmfkakik .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1676,7 +2612,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_footnote {
+#rppmfkakik .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1685,7 +2621,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ochkbcwzaw .gt_sourcenotes {
+#rppmfkakik .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1699,7 +2635,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ochkbcwzaw .gt_sourcenote {
+#rppmfkakik .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1707,108 +2643,125 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ochkbcwzaw .gt_left {
+#rppmfkakik .gt_left {
   text-align: left;
 }
 
-#ochkbcwzaw .gt_center {
+#rppmfkakik .gt_center {
   text-align: center;
 }
 
-#ochkbcwzaw .gt_right {
+#rppmfkakik .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ochkbcwzaw .gt_font_normal {
+#rppmfkakik .gt_font_normal {
   font-weight: normal;
 }
 
-#ochkbcwzaw .gt_font_bold {
+#rppmfkakik .gt_font_bold {
   font-weight: bold;
 }
 
-#ochkbcwzaw .gt_font_italic {
+#rppmfkakik .gt_font_italic {
   font-style: italic;
 }
 
-#ochkbcwzaw .gt_super {
+#rppmfkakik .gt_super {
   font-size: 65%;
 }
 
-#ochkbcwzaw .gt_footnote_marks {
+#rppmfkakik .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ochkbcwzaw .gt_asterisk {
+#rppmfkakik .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ochkbcwzaw .gt_indent_1 {
+#rppmfkakik .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ochkbcwzaw .gt_indent_2 {
+#rppmfkakik .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ochkbcwzaw .gt_indent_3 {
+#rppmfkakik .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ochkbcwzaw .gt_indent_4 {
+#rppmfkakik .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ochkbcwzaw .gt_indent_5 {
+#rppmfkakik .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>Estados y tipo de casilla con la menor cantidad de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal">Votos a favor de X. Gálvez por cada 100 votos a favor de C. Sheinbaum</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Valores mínimos</th>
+</tr>
 <tr class="header gt_col_headings">
-<th id="entidad" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">entidad</th>
-<th id="casilla" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">casilla</th>
-<th id="ratio_claudia100" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">ratio_claudia100</th>
+<th id="Estado" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Estado</th>
+<th id="Tipo de Casilla" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Tipo de Casilla</th>
+<th id="Ratio Claudia 100" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Ratio Claudia 100</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">TABASCO</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">12.58423</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">12.58</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">TABASCO</td>
 <td class="gt_row gt_left" headers="casilla">Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">15.06025</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">15.06</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">QUINTANA ROO</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">16.85210</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">16.85</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">OAXACA</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">17.32029</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">17.32</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="entidad">TLAXCALA</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">18.24423</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">18.24</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="entidad">CAMPECHE</td>
 <td class="gt_row gt_left" headers="casilla">No Urbana</td>
-<td class="gt_row gt_right" headers="ratio_claudia100">19.74231</td>
+<td class="gt_row gt_right" headers="ratio_claudia100">19.74</td>
 </tr>
-</tbody>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="3" class="gt_sourcenote">Fuente: INE Cómputos Distritales 2024, Presidencia de la República.<br>
+Modelaje y Visualización: Juan L. Bretón, PMP</td>
+</tr>
+</tfoot>
+
 </table>
 
 </div>
@@ -1817,7 +2770,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="comparación-de-resultados-respecto-del-grado-de-rezago-social" class="level3">
 <h3 class="anchored" data-anchor-id="comparación-de-resultados-respecto-del-grado-de-rezago-social">Comparación de resultados respecto del Grado de Rezago Social</h3>
-<p>Con los datos del Grado de Rezago Social del Consejo Nacional de Evaluación de la Política de Desarrollo Social CONEVAL (2020) podemos explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.</p>
+<p>Con los datos del Grado de Rezago Social del Consejo Nacional de Evaluación de la Política de Desarrollo Social CONEVAL (2020) es posible explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -1828,8 +2781,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>En principio, parace que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez.</p>
-<p>Considerando uno de los componentes del Rezago Social, en particular, la proporción de personas mayores de 15 que no saben leer ni escribir.</p>
+<p>En principio, se observa que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez. En los estados con grados muy bajo, bajo y medio de rezago social la variabilidad en las proporciones es amplia, mientras que en los estados con grados de rezago social alto y muy alto la variabilidad es mucho menor.</p>
+<p>Considerando uno de los componentes del Rezago Social, en particular, la proporción de personas mayores de 15 que no saben leer ni escribir. Se observa que la proporción de votos a favor de Xóchitl Gálvez disminuye a medida que la proporción de personas analfabetas en la entidad federativa aumenta.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
@@ -1843,14 +2796,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="comparación-de-resultados-con-datos-del-índice-de-competitividad-estatal" class="level3">
 <h3 class="anchored" data-anchor-id="comparación-de-resultados-con-datos-del-índice-de-competitividad-estatal">Comparación de resultados con datos del Índice de Competitividad Estatal</h3>
-<p>A partir de los datos del Índice de Competitividad Estatal (2024) del Instituto Mexicano para la Competitividad (IMCO) también podemos explorar relaciones con los resultados de la elección presidencial.</p>
+<p>A partir de los datos del Índice de Competitividad Estatal (2024) del Instituto Mexicano para la Competitividad (IMCO) también se pueden explorar relaciones con los resultados de la elección presidencial.</p>
 <p>La comparación de la proporción de votación a favor de cada candidatura respecto del nivel de competitivad del estado muestra un patrón interesante.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="eleccion_files/figure-html/ine compara propor con ice-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Relación entre la proporción de personas analfabetas y el ratio de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum</figcaption>
+<figcaption>Proporción de votos a favor de cada candidata por entidad federativa en razón del Índice de Competitividad Estatal 2024</figcaption>
 </figure>
 </div>
 </div>
@@ -1861,7 +2814,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="eleccion_files/figure-html/ine diferencia en proporción-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Comparación de proporciones entre cadidatas en razón del Índice de Competitividad Estatal</figcaption>
+<figcaption>Comparación de proporciones entre cadidatas en razón del Índice de Competitividad Estatal 2024</figcaption>
 </figure>
 </div>
 </div>
@@ -1869,23 +2822,23 @@ ul.task-list li input[type="checkbox"] {
 <p>La tabla muestra la diferencia entre las medias de las proporciones de cada candidatura.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="kojkhexrka" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kojkhexrka table {
+<div id="ujsdlexnuv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ujsdlexnuv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kojkhexrka thead, #kojkhexrka tbody, #kojkhexrka tfoot, #kojkhexrka tr, #kojkhexrka td, #kojkhexrka th {
+#ujsdlexnuv thead, #ujsdlexnuv tbody, #ujsdlexnuv tfoot, #ujsdlexnuv tr, #ujsdlexnuv td, #ujsdlexnuv th {
   border-style: none;
 }
 
-#kojkhexrka p {
+#ujsdlexnuv p {
   margin: 0;
   padding: 0;
 }
 
-#kojkhexrka .gt_table {
+#ujsdlexnuv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1911,12 +2864,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_caption {
+#ujsdlexnuv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kojkhexrka .gt_title {
+#ujsdlexnuv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1928,7 +2881,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#kojkhexrka .gt_subtitle {
+#ujsdlexnuv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1940,7 +2893,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#kojkhexrka .gt_heading {
+#ujsdlexnuv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1952,13 +2905,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_bottom_border {
+#ujsdlexnuv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_col_headings {
+#ujsdlexnuv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1973,7 +2926,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_col_heading {
+#ujsdlexnuv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1993,7 +2946,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#kojkhexrka .gt_column_spanner_outer {
+#ujsdlexnuv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2005,15 +2958,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#kojkhexrka .gt_column_spanner_outer:first-child {
+#ujsdlexnuv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kojkhexrka .gt_column_spanner_outer:last-child {
+#ujsdlexnuv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kojkhexrka .gt_column_spanner {
+#ujsdlexnuv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2025,11 +2978,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#kojkhexrka .gt_spanner_row {
+#ujsdlexnuv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kojkhexrka .gt_group_heading {
+#ujsdlexnuv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2055,7 +3008,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#kojkhexrka .gt_empty_group_heading {
+#ujsdlexnuv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2070,15 +3023,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#kojkhexrka .gt_from_md > :first-child {
+#ujsdlexnuv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kojkhexrka .gt_from_md > :last-child {
+#ujsdlexnuv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kojkhexrka .gt_row {
+#ujsdlexnuv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2097,7 +3050,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#kojkhexrka .gt_stub {
+#ujsdlexnuv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2110,7 +3063,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#kojkhexrka .gt_stub_row_group {
+#ujsdlexnuv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2124,15 +3077,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#kojkhexrka .gt_row_group_first td {
+#ujsdlexnuv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kojkhexrka .gt_row_group_first th {
+#ujsdlexnuv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kojkhexrka .gt_summary_row {
+#ujsdlexnuv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2142,16 +3095,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#kojkhexrka .gt_first_summary_row {
+#ujsdlexnuv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_first_summary_row.thick {
+#ujsdlexnuv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kojkhexrka .gt_last_summary_row {
+#ujsdlexnuv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2161,7 +3114,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_grand_summary_row {
+#ujsdlexnuv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2171,7 +3124,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#kojkhexrka .gt_first_grand_summary_row {
+#ujsdlexnuv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2181,7 +3134,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_last_grand_summary_row_top {
+#ujsdlexnuv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2191,11 +3144,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_striped {
+#ujsdlexnuv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kojkhexrka .gt_table_body {
+#ujsdlexnuv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2204,7 +3157,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_footnotes {
+#ujsdlexnuv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2218,7 +3171,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_footnote {
+#ujsdlexnuv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2227,7 +3180,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#kojkhexrka .gt_sourcenotes {
+#ujsdlexnuv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2241,7 +3194,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#kojkhexrka .gt_sourcenote {
+#ujsdlexnuv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2249,101 +3202,117 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#kojkhexrka .gt_left {
+#ujsdlexnuv .gt_left {
   text-align: left;
 }
 
-#kojkhexrka .gt_center {
+#ujsdlexnuv .gt_center {
   text-align: center;
 }
 
-#kojkhexrka .gt_right {
+#ujsdlexnuv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kojkhexrka .gt_font_normal {
+#ujsdlexnuv .gt_font_normal {
   font-weight: normal;
 }
 
-#kojkhexrka .gt_font_bold {
+#ujsdlexnuv .gt_font_bold {
   font-weight: bold;
 }
 
-#kojkhexrka .gt_font_italic {
+#ujsdlexnuv .gt_font_italic {
   font-style: italic;
 }
 
-#kojkhexrka .gt_super {
+#ujsdlexnuv .gt_super {
   font-size: 65%;
 }
 
-#kojkhexrka .gt_footnote_marks {
+#ujsdlexnuv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kojkhexrka .gt_asterisk {
+#ujsdlexnuv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kojkhexrka .gt_indent_1 {
+#ujsdlexnuv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kojkhexrka .gt_indent_2 {
+#ujsdlexnuv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kojkhexrka .gt_indent_3 {
+#ujsdlexnuv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kojkhexrka .gt_indent_4 {
+#ujsdlexnuv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kojkhexrka .gt_indent_5 {
+#ujsdlexnuv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 
 <table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <caption>Diferencia en las proporciones de votos en razón del Índice de Competitivad Estatal 2024</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
+<tr class="header gt_heading">
+<th colspan="2" class="gt_heading gt_title gt_font_normal">Diferencia porcentual entre las proporciones a favor de cada candidata</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Por Índice de Competitividad Estatal 2024</th>
+</tr>
 <tr class="header gt_col_headings">
-<th id="Índice de Competititividad Estatal" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Índice de Competititividad Estatal</th>
-<th id="Diferencia en Proporciones " class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Diferencia en Proporciones</th>
+<th id="Índice de Competitividad Estatal" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Índice de Competitividad Estatal</th>
+<th id="Diferencia porcentual" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Diferencia porcentual</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Muy alta</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">59.79195</td>
+<td class="gt_row gt_center" headers="indice">Muy alta</td>
+<td class="gt_row gt_right" headers="dife">59.79%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Alta</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">53.13039</td>
+<td class="gt_row gt_center" headers="indice">Alta</td>
+<td class="gt_row gt_right" headers="dife">53.13%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Media alta</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">104.67641</td>
+<td class="gt_row gt_center" headers="indice">Media alta</td>
+<td class="gt_row gt_right" headers="dife">104.68%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Media baja</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">163.24396</td>
+<td class="gt_row gt_center" headers="indice">Media baja</td>
+<td class="gt_row gt_right" headers="dife">163.24%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Baja</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">206.00950</td>
+<td class="gt_row gt_center" headers="indice">Baja</td>
+<td class="gt_row gt_right" headers="dife">206.01%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="Índice de Competititividad Estatal">Muy baja</td>
-<td class="gt_row gt_right" headers="Diferencia en Proporciones ">429.89400</td>
+<td class="gt_row gt_center" headers="indice">Muy baja</td>
+<td class="gt_row gt_right" headers="dife">429.89%</td>
 </tr>
-</tbody>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="2" class="gt_sourcenote">Fuente: INE Cómputos Distritales 2024, Presidencia de la República. IMCO, ICE 2024.<br>
+Modelaje y Visualización: Juan L. Bretón, PMP</td>
+</tr>
+</tfoot>
+
 </table>
 
 </div>
@@ -2351,9 +3320,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="conclusión" class="level2">
-<h2 class="anchored" data-anchor-id="conclusión">Conclusión</h2>
-<p>La votación a favor de Claudia Sheinbaum es significativa en casi todos los estados, mostrando un respaldo amplio y consistente en diversas regiones del país. Esta tendencia se mantiene uniforme independientemente de los grados de rezago social definidos por el Consejo Nacional de Evaluación de la Política de Desarrollo Social (CONEVAL) y de los niveles de competitividad estatal medidos por el Instituto Mexicano para la Competitividad (IMCO). Es decir, la preferencia por Sheinbaum se observa tanto en estados con altos niveles de desarrollo y competitividad, como en aquellos con mayores carencias y menor competitividad económica.</p>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
+<p>La votación a favor de Claudia Sheinbaum es más alta en casi todos los estados, mostrando un respaldo amplio y consistente en diversas regiones del país. Esta tendencia se mantiene uniforme independientemente de los grados de rezago social definidos por el CONEVAL y de los niveles de competitividad estatal medidos por el IMCO. Es decir, la preferencia mayoritaria por C. Sheinbaum se observa tanto en estados con altos niveles de desarrollo y competitividad, como en aquellos con mayores carencias y menor competitividad económica.</p>
 <p>Sin embargo, al analizar más detalladamente la brecha entre la proporción de votos a favor de Sheinbaum y Gálvez, se observa una dinámica interesante. Esta brecha, o diferencia en el porcentaje de apoyo entre ambas candidatas, se amplía considerablemente en los estados con mayores niveles de rezago social. En estas regiones, donde las carencias en términos de infraestructura, educación y servicios básicos son más pronunciadas, la proporción de votos a favor de Sheinbaum supera por un margen más amplio al apoyo hacia Gálvez. Esto sugiere que los sectores más desfavorecidos y vulnerables de la población pueden percibir en Sheinbaum una mayor afinidad con sus necesidades y aspiraciones.</p>
 <p>De manera similar, la brecha entre los votos a favor de Sheinbaum y Gálvez también se amplifica en los estados con baja competitividad estatal. Estos estados, que enfrentan desafíos significativos en términos de crecimiento económico, inversión y desarrollo empresarial, muestran una tendencia a favorecer más a Sheinbaum. Esto podría indicar que su propuesta política resuena más con las preocupaciones de estas regiones, que buscan soluciones más urgentes y efectivas para mejorar sus condiciones socioeconómicas.</p>
 <p>Aunque Sheinbaum cuenta con un respaldo amplio a nivel nacional, su ventaja se intensifica en los contextos de mayor rezago social y baja competitividad estatal, destacando una segmentación del voto basada en las disparidades socioeconómicas y regionales.</p>

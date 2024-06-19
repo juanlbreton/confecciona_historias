@@ -6,9 +6,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-## ¿Qué podemos saber de la elección presidencial 2024?
+## ¿Qué Podemos Aprender de la Elección Presidencial 2024?
 
-Con los datos de los conteos distritales de la elección presidencial 2024 celebrados en el Instituto Nacional Electoral (INE) es posible examinar algunos de los patrones que se presentaron en el proceso.
+Con los datos de los conteos distritales de la elección presidencial 2024 celebrados en el Instituto Nacional Electoral (INE) es posible examinar algunos de los patrones que se presentaron en el proceso. En particular, se pueden explorar las diferencias en la proporción de votos obtenidos por cada una de las candidatas punteras, Claudia Sheinbaum y Xóchitl Gálvez, en relación con variables socioeconómicas y políticas.
 
 ## Workflow
 
@@ -40,7 +40,7 @@ load("raw_data/resul_elec.RData")
 #   read_rds("raw_data/casillas_2024.rds")
 ```
 
-El dataset contiene los datos de las `r format(nrow(dt_01), big.mark = ",")` casillas correspondientes a cada una de las `r format(length(unique(dt_01$seccion)), big.mark = ",")` secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset.
+El dataset contiene los datos de las `r format(nrow(dt_01), big.mark = ",")` casillas correspondientes a cada una de las `r format(length(unique(dt_01$seccion)), big.mark = ",")` secciones electorales en que se dividieron las 32 entidades del país. La siguiente es una muestra de los datos contenidos en el dataset, después de aplicar el algoritmo para la agregación de los votos emitidos para cada una de las candidaturas punteras.
 
 ```{r}
 #| label: ine muestra dataset
@@ -53,9 +53,7 @@ gt(dt_01 |>
      slice_sample(n = 10))
 ```
 
-Además de la identificación de la casilla y de la sección, el dataset ha sido modificado de acuerdo con el algoritmo publicado por el INE para mostrar el número de votos emitidos, los votos nulos, los votos válidos y los votos por cada una de las candidatas punteras.
-
-Es importante destacar que este dataset no tiene incertidumbre, porque, estadísticamente hablando, la elección constituye un censo.
+Es importante destacar que este dataset no tiene incertidumbre, porque dado que, estadísticamente hablando, la elección constituye un censo, no se realizarán inferencias.
 
 ### Resultados totales
 
@@ -74,10 +72,18 @@ dt_01 |>
   mutate(pct_xochitl = xochitl / total_votos_calculados,
          pct_claudia = claudia / total_votos_calculados)|>
   select(-total_votos_calculados) |>
-  knitr::kable(col.names = c('Xóchitl Gálvez', 'Claudia Sheinbaum',
-                             'Porcentaje Gálvez', 'Porcentaje Sheinbaum'), 
-               format.args = list(big.mark = ',')) |> 
-  kableExtra::kable_styling(full_width = FALSE, position = "center")
+  gt() |> 
+  cols_label(xochitl ~ 'Xóchitl Gálvez',
+             claudia ~ 'Claudia Sheinbaum',
+             pct_xochitl ~ 'Xóchitl Gálvez',
+             pct_claudia ~ 'Claudia Sheinbaum') |> 
+  tab_header(title = "Resultados de la Elección Presidencial 2024") |> 
+  tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. <br> 
+Modelaje y Visualización: Juan L. Bretón, PMP")) |> 
+  tab_spanner(label = "Votos Emitidos", columns = c(xochitl, claudia)) |> 
+  tab_spanner(label = "Porcentajes", columns = c(pct_xochitl, pct_claudia)) |> 
+  fmt_percent(columns = c(pct_xochitl, pct_claudia), decimals = 4) |> 
+  fmt_number(columns = c(xochitl, claudia), decimals = 0)
 ```
 
 #### Porcentaje de participación
@@ -88,20 +94,32 @@ dt_01 |>
 #| message: false
 #| warning: false
 
-# porcentaje de votación
+# tabla de porcentaje de votación
 dt_01 |> 
   summarize(across(c(total_votos_calculados, lista_nominal),
                    \(x) sum(x, na.rm = TRUE))) |> 
   mutate(pct_votacion = total_votos_calculados / lista_nominal) |> 
-  select('Votos Totales' = total_votos_calculados,
-         'Lista Nominal' = lista_nominal,
-         'Participación (%)' = pct_votacion) |> 
-  knitr::kable(format.args = list(big.mark = ","))
+  gt() |> 
+  cols_label(total_votos_calculados ~ 'Votos Emitidos',
+             lista_nominal ~ 'Lista Nominal',
+             pct_votacion ~ 'Porcentaje de Participación') |> 
+  tab_spanner(label = "Votación", 
+              columns = c(total_votos_calculados, lista_nominal)) |>
+  tab_spanner(label = "Cálculo", 
+              columns = pct_votacion) |> 
+  fmt_percent(columns = pct_votacion, decimals = 4) |>
+  fmt_number(columns = c(total_votos_calculados, lista_nominal),
+             decimals = 0) |>
+  tab_header(title = "Participación Ciudadana en Elección Presidencial 2024") |> 
+  tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. <br> 
+Modelaje y Visualización: Juan L. Bretón, PMP"))
 ```
 
 ### Resultados por entidad y sección
 
-La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.
+La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes. 
+
+En el eje de las abcisas se presenta la proporción de votos a favor de Xóchitl Gálvez y en el eje de las ordenadas la proporción de votos a favor de Claudia Sheinbaum. Cada punto representa las casillas de un tipo dentro de cada sección y su color indica si se trata de casillas urbanas o no urbanas. La bisectriz de la gráfica indica el punto en el que ambas candidatas obtienen la misma proporción de votos.
 
 ```{r}
 #| label: ine resultados por estado seccion
@@ -110,7 +128,7 @@ La proporción de votos obtenidos por cada una de las candidatas punteras en cad
 #| warning: false
 #| fig-width: 10
 #| fig-height: 8
-#| fig-cap: "Proporción de votos a favor de cada candidata por sección electoral"
+#| fig-cap: "Proporción de votos a favor de cada candidata por sección electoral en cada estado"
 
 # proporcion de votos por candidata por sección
 dt_01 |> 
@@ -127,8 +145,8 @@ dt_01 |>
   geom_point(aes(color = casilla),
              alpha =  0.3) +
   facet_wrap(vars(entidad)) +
-  labs(title = "Proporción de Votos a favor de cada Candidata",
-       subtitle = "Proporciones por sección electoral por tipo de casilla",
+  labs(title = "Proporción de votos a favor de cada candidata",
+       subtitle = "Proporciones por sección electoral por tipo de casilla en cada estado",
        x = "Proporción de votos a favor de Xóchitl Gálvez",
        y = "Proporción de votos a favor de Claudia Sheinbaum",
        caption = "Fuente: INE Cómputos Distritales 2024, 
@@ -140,7 +158,7 @@ dt_01 |>
   theme(legend.position = 'top') 
 ```
 
-Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum, aunque los votos no urbanos parecen hacerlo en mayor proporción.
+Tanto los votos urbanos como los no urbanos tienden a favorecer a Claudia Sheinbaum en prácticamente todos los estados, aunque los votos no urbanos parecen hacerlo en mayor proporción.
 
 Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez acumula la mayor cantidad de votos en casillas mayoritariamente urbanas. Debe destacarse que solo en el estado de Aguascalientes la candidata Gálvez obtiene más votos que la candidata Sheinbaum.
 
@@ -159,7 +177,15 @@ dt_01 |>
   mutate(ratio_claudia100 = (xochitl / claudia) * 100) |> 
   slice_max(order_by = ratio_claudia100, n = 6, with_ties = FALSE) |> 
   select(-c(xochitl, claudia)) |> 
-  gt()
+  gt() |> 
+  cols_label(ratio_claudia100 ~ 'Ratio Claudia 100',
+             entidad ~ 'Estado',
+             casilla ~ 'Tipo de Casilla') |> 
+  fmt_number(columns = ratio_claudia100, decimals = 2) |> 
+  tab_header(title = "Votos a favor de X. Gálvez por cada 100 votos a favor de C. Sheinbaum",
+             subtitle = "Valores máximos") |> 
+  tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. <br> 
+Modelaje y Visualización: Juan L. Bretón, PMP"))
 ```
 
 Por cada 100 votos de Claudia Sheinbaum, Xóchitl Gálvez obtiene la menor cantidad de votos en las casillas mayoritariamente no urbanas.
@@ -179,12 +205,20 @@ dt_01 |>
   mutate(ratio_claudia100 = (xochitl / claudia) * 100) |> 
   slice_min(order_by = ratio_claudia100, n = 6, with_ties = FALSE) |> 
   select(-c(xochitl, claudia)) |> 
-  gt()
+  gt() |> 
+  cols_label(ratio_claudia100 ~ 'Ratio Claudia 100',
+             entidad ~ 'Estado',
+             casilla ~ 'Tipo de Casilla') |> 
+  fmt_number(columns = ratio_claudia100, decimals = 2) |> 
+  tab_header(title = "Votos a favor de X. Gálvez por cada 100 votos a favor de C. Sheinbaum",
+             subtitle = "Valores mínimos") |> 
+  tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. <br> 
+Modelaje y Visualización: Juan L. Bretón, PMP"))
 ```
 
 ### Comparación de resultados respecto del Grado de Rezago Social
 
-Con los datos del Grado de Rezago Social del Consejo Nacional de Evaluación de la Política de Desarrollo Social CONEVAL (2020) podemos explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.
+Con los datos del Grado de Rezago Social del Consejo Nacional de Evaluación de la Política de Desarrollo Social CONEVAL (2020) es posible explorar si existe alguna relación entre el grado de rezago social y la proporción de votos obtenidos por cada una de las candidatas punteras. Los datos de Grado de Rezago Social se agregan por estado.
 
 ```{r}
 #| label: ine diferente
@@ -210,21 +244,21 @@ tbl_compara_prop |>
   scale_color_manual(values = c("#950E03", "#338BF6"),
                      labels = c("Claudia Sheinbaum", "Xóchilt Gálvez"),
                      name = "Candidata") +
-  labs(title = "Proporción de Votos a Favor de cada Candidata",
+  labs(title = "Proporción de votos a favor de cada candidata",
        subtitle = "Por grado de rezago social de la entidad federativa. El rango representa 2 desviaciones estándar.",
        x = "Grado de Rezago Social",
        y = "Proporción de votos",
        caption = "Fuente: INE Cómputos Distritales 2024 
        Presidencia de la República; CONEVAL, Índice de Rezago Social 2020; <br>
-         Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+       Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
   theme_breton() +
   theme(legend.position = 'top') +
   scale_y_continuous(labels = scales::percent_format())
 ```
 
-En principio, parace que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez.
+En principio, se observa que el grado de rezago social incrementa la proporción de votos a favor de Claudia Sheinbaum y disminuye la proporción de votos a favor de Xóchitl Gálvez. En los estados con grados muy bajo, bajo y medio de rezago social la variabilidad en las proporciones es amplia, mientras que en los estados con grados de rezago social alto y muy alto la variabilidad es mucho menor.
 
-Considerando uno de los componentes del Rezago Social, en particular, la proporción de personas mayores de 15 que no saben leer ni escribir.
+Considerando uno de los componentes del Rezago Social, en particular, la proporción de personas mayores de 15 que no saben leer ni escribir. Se observa que la proporción de votos a favor de Xóchitl Gálvez disminuye a medida que la proporción de personas analfabetas en la entidad federativa aumenta.
 
 ```{r}
 #| label: ine relacion analfabeta con ratio
@@ -269,7 +303,7 @@ dt_irs |>
 
 ### Comparación de resultados con datos del Índice de Competitividad Estatal
 
-A partir de los datos del Índice de Competitividad Estatal (2024) del Instituto Mexicano para la Competitividad (IMCO) también podemos explorar relaciones con los resultados de la elección presidencial.
+A partir de los datos del Índice de Competitividad Estatal (2024) del Instituto Mexicano para la Competitividad (IMCO) también se pueden explorar relaciones con los resultados de la elección presidencial.
 
 La comparación de la proporción de votación a favor de cada candidatura respecto del nivel de competitivad del estado muestra un patrón interesante.
 
@@ -278,7 +312,7 @@ La comparación de la proporción de votación a favor de cada candidatura respe
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-cap: "Relación entre la proporción de personas analfabetas y el ratio de votos a favor de Xóchitl Gálvez por cada 100 votos a favor de Claudia Sheinbaum"
+#| fig-cap: "Proporción de votos a favor de cada candidata por entidad federativa en razón del Índice de Competitividad Estatal 2024"
 
 # niveles de color
 col_niv <- c("Muy alta" = "#509469", 
@@ -331,7 +365,7 @@ La comparación de la media de la proporción para cada candidatura en relación
 #| echo: false
 #| message: false
 #| warning: false
-#| fig-cap: "Comparación de proporciones entre cadidatas en razón del Índice de Competitividad Estatal"
+#| fig-cap: "Comparación de proporciones entre cadidatas en razón del Índice de Competitividad Estatal 2024"
 
 # diferencia en proporcion por competitividad del estado
 dt_ice |> 
@@ -398,8 +432,7 @@ tbl_dif <-
   summarize(across(pct_xochitl:pct_claudia,
                    .fns = mean),
             .by = indice) |> 
-  mutate(dife = (pct_claudia - pct_xochitl) / pct_xochitl) |> 
-  mutate(dife = dife * 100)
+  mutate(dife = (pct_claudia - pct_xochitl) / pct_xochitl)
 
 
 tbl_dif |> 
@@ -408,14 +441,20 @@ tbl_dif |>
                   'Media alta', 'Media baja',
                   'Baja', 'Muy baja'))) |> 
   select(-c(pct_xochitl, pct_claudia)) |> 
-  select("Índice de Competititividad Estatal" = indice, 
-         "Diferencia en Proporciones " = dife) |>
-  gt::gt()
+  gt() |> 
+  tab_header(title = "Diferencia porcentual entre las proporciones a favor de cada candidata",
+             subtitle = "Por Índice de Competitividad Estatal 2024") |> 
+  tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. IMCO, ICE 2024. <br> 
+Modelaje y Visualización: Juan L. Bretón, PMP")) |> 
+  cols_label(dife ~ 'Diferencia porcentual',
+             indice ~ 'Índice de Competitividad Estatal') |> 
+  fmt_percent(columns = dife, decimals = 2)
 ```
 
-## Conclusión
 
-La votación a favor de Claudia Sheinbaum es significativa en casi todos los estados, mostrando un respaldo amplio y consistente en diversas regiones del país. Esta tendencia se mantiene uniforme independientemente de los grados de rezago social definidos por el Consejo Nacional de Evaluación de la Política de Desarrollo Social (CONEVAL) y de los niveles de competitividad estatal medidos por el Instituto Mexicano para la Competitividad (IMCO). Es decir, la preferencia por Sheinbaum se observa tanto en estados con altos niveles de desarrollo y competitividad, como en aquellos con mayores carencias y menor competitividad económica.
+## Conclusiones
+
+La votación a favor de Claudia Sheinbaum es más alta en casi todos los estados, mostrando un respaldo amplio y consistente en diversas regiones del país. Esta tendencia se mantiene uniforme independientemente de los grados de rezago social definidos por el CONEVAL y de los niveles de competitividad estatal medidos por el IMCO. Es decir, la preferencia mayoritaria por C. Sheinbaum se observa tanto en estados con altos niveles de desarrollo y competitividad, como en aquellos con mayores carencias y menor competitividad económica.
 
 Sin embargo, al analizar más detalladamente la brecha entre la proporción de votos a favor de Sheinbaum y Gálvez, se observa una dinámica interesante. Esta brecha, o diferencia en el porcentaje de apoyo entre ambas candidatas, se amplía considerablemente en los estados con mayores niveles de rezago social. En estas regiones, donde las carencias en términos de infraestructura, educación y servicios básicos son más pronunciadas, la proporción de votos a favor de Sheinbaum supera por un margen más amplio al apoyo hacia Gálvez. Esto sugiere que los sectores más desfavorecidos y vulnerables de la población pueden percibir en Sheinbaum una mayor afinidad con sus necesidades y aspiraciones.
 

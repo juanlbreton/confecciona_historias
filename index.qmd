@@ -4,25 +4,37 @@ bibliography: refer.bib
 favicon: images/favicon_jlbe.jpg
 ---
 
-## Conocimiento
+## Entendimiento
 
-El objeto de la Ciencia de Datos pasa por convertir datos en entendimiento y en conocimiento [@rfds2]. El conocimiento es el punto donde todo este esfuerzo alcanza su palanca mínima para conducir la toma de una decisión y así, modificar el comportamiento de las personas y de las organizaciones.
+El objeto de la Ciencia de Datos pasa por convertir datos en conocimiento y en entendimiento [@rfds2]. El entendimiento es el punto donde todo este esfuerzo técnico alcanza su palanca mínima para conducir la toma de una decisión y así, modificar el comportamiento de las personas y de las organizaciones.
 
-Sin embargo, la transformación de datos en conocimiento no ocurre de forma automática. Se requiere del trabajo de profesionales practicantes de la Ciencia de Datos que se adhieren a una implementación sistemática y basada en principios de métodos estadísticos mediante procesamientos computacionales eficientes[@hiring_gambit].
+Sin embargo, la transformación de datos en información y, posteriormente, en conocimiento no ocurre de forma automática. Se requiere del trabajo de profesionales practicantes de la Ciencia de Datos que se adhieren a una implementación sistemática y basada en los principios de métodos estadísticos probados y soportados mediante procesamientos computacionales eficientes[@hiring_gambit].
 
 ::: callout-tip
-Necesitamos información para tomar decisiones. Sólo tenemos los datos. Es necesario hacer el trabajo.
+Necesitamos información para tomar decisiones. Sólo tenemos los datos.
+
+Es necesario hacer el trabajo.
 :::
 
-Asumimos que el mundo es ahora impulsado por los datos. Sin embargo, para ser de utilidad, los datos deben ofrecer significado a las personas que los utilizan. El Continuo del Entendimiento [@uni_theory] es un marco que ayuda a entender cómo es que los datos deben ser transformados para poder ser aprovechados.
+En este momento, se da por sentado que el mundo es impulsado por los datos. Sin embargo, para ser de verdadera utilidad, los datos deben ofrecer algún significado a las personas que los utilizan.
 
-![Continuo del Entendimiento. Imagen: N. Shadroff.](images/con_unders.png){width="624"}
+El Continuo del Entendimiento [@uni_theory] es un marco que nos ayuda a entender cómo es que los datos deben ser transformados para poder ser aprovechados.
 
-El trabajo más importante para generar entendimiento resulta de proveer contexto para los datos para, con esta información, ofrecer un estímulo en la audiencia que le permita vivir una experiencia que es la semilla del conocimiento.
+![Continuo del Entendimiento. Imagen tomada de N. Shadroff (1994).](images/con_unders.png){width="624"}
 
-## Historias
+Los **datos** son solamente instantáneas de una porción de la realidad que, regularmente, resultan aburridas o inconsecuentes porque no consiguen transmitir un mensaje claro y completo.
 
-Una de las formas más humanas para compartir conocimiento son, precisamente, las historias. La generación de conocimiento es un requiere de la participación de la audiencia y las historias, a través de la conversación que conforman, invitan al escucha recibir los mensajes más importantes.
+La transformación de los datos en **información** ocurre cuando se identifican las relaciones y se extraen los patrones que existen entre los datos. Para conseguir esta transformación se sigue un conjunto de reglas que organizan los datos en estructuras lógicas que les otorgan un significado específico.
+
+Al **conocimiento** se accede por medio de la experiencia. Es decir, para generar conocimiento es preciso construir interacciones con otras personas, porque es a través de estas interacciones que los patrones y los significados de la información pueden ser aprendidos por las personas a quienes están dirigidos.
+
+Este proceso de aprendizaje está determinado por la variedad y por la naturaleza de las experiencias compartidas entre quien presenta y su audiencia. El conocimiento se crea mediante la integración que sucede entre la presentación y la mente de quien la atiende. En este sentido, el conocimiento es resultado de un proceso de participación comunicativa.
+
+La información constituye un estímulo para detonar una experiencia. La reflexión y la interpretación que hace el participante del conocimiento obtenido durante la experiencia forma la **sabiduría** como estadio último del continuo del entendimiento. La sabiduría es el meta-conocimiento de los procesos y las relaciones aprendidas mediante la experiencia.
+
+## Contar Historias
+
+Una de las formas más humanas para compartir conocimiento son, precisamente, las historias. La generación de conocimiento es un requiere de la participación de la audiencia y las historias, a través de la conversación que conforman, permiten invitar al escucha recibir los mensajes más importantes que se le quieren comunicar.
 
 Para contar una historia a partir de los datos, deben considerarse los cuestionamientos siguientes [@tell_stories].
 
