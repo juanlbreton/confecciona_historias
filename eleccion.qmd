@@ -442,11 +442,11 @@ tbl_dif |>
                   'Baja', 'Muy baja'))) |> 
   select(-c(pct_xochitl, pct_claudia)) |> 
   gt() |> 
-  tab_header(title = "Diferencia porcentual entre las proporciones a favor de cada candidata",
+  tab_header(title = "Diferencia entre las proporciones a favor de cada candidata",
              subtitle = "Por Índice de Competitividad Estatal 2024") |> 
   tab_source_note(source_note = html("Fuente: INE Cómputos Distritales 2024, Presidencia de la República. IMCO, ICE 2024. <br> 
 Modelaje y Visualización: Juan L. Bretón, PMP")) |> 
-  cols_label(dife ~ 'Diferencia porcentual',
+  cols_label(dife ~ 'Diferencia',
              indice ~ 'Índice de Competitividad Estatal') |> 
   fmt_percent(columns = dife, decimals = 2)
 ```

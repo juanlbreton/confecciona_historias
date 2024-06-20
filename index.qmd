@@ -36,7 +36,11 @@ La información constituye un estímulo para detonar una experiencia. La reflexi
 
 Una de las formas más humanas para compartir conocimiento son, precisamente, las historias. La generación de conocimiento es un requiere de la participación de la audiencia y las historias, a través de la conversación que conforman, permiten invitar al escucha recibir los mensajes más importantes que se le quieren comunicar.
 
-Para contar una historia a partir de los datos, deben considerarse los cuestionamientos siguientes [@tell_stories].
+La siguiente imagen tiene una carga emocional significativa. Cada uno de los puntos representa una defunción por COVID-19 en México, ubicada en el momento del tiempo en el que fue registrada. Esta visualización está diseñada para contar una historia completa en sí misma. La imagen invita a participar a la audiencia para que, a través de una experiencia, se genere un entendimiento de la magnitud de la pandemia en México.
+
+![Imagen de las primeras 300 mil defunciones por COVID-19 en México.](images/defunciones_covid_mx.png){width="888"}
+
+Para confeccionar una historia a partir de los datos, deben considerarse los cuestionamientos siguientes [@tell_stories].
 
 1.  ¿Quién generó el conjunto de datos y con qué objeto?
 2.  ¿Cómo se generaron los datos?
