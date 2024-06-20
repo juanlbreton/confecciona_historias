@@ -55,3 +55,5 @@ Para confeccionar una historia a partir de los datos, deben considerarse los cue
 [Patrones de Homicidios Dolosos](patron_homicidios.qmd)
 
 [Desempeño de la Economía Mexicana](pib_desempe.qmd)
+
+[Resultados de PISA 2022 en Matemáticas](pisa_2022.qmd)

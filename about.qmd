@@ -3,8 +3,15 @@ title: "Juan L. Bretón, PMP"
 about:
   template: jolla
   image: images/icon_jlbe.jpg
+  links:
+    - text: LinkedIn
+      icon: linkedin
+      href: https://www.linkedin.com/in/juanlbreton/ 
+    - text: GitHub
+      icon: github
+      href: https://github.com/BretonErst
 ---
 
 Evangelista y promotor de la cultura impulsada por datos. Sus esfuerzos profesionales, junto con su pasión, se han enfocado en aprovechar el poder de los algoritmos y la tecnología de vanguardia para el desarrollo e implementación de modelos de analítica predictiva con una visión orientada a ofrecer soluciones basadas en datos a desafíos organizacionales complejos.
 
-Profesor universitario en cátedras como Confiabilidad, Investigación de Operaciones, Six Sigma, Pensamiento Estadístico, Análisis para la Toma de Decisiones y Matemáticas y Ciencia de Datos. Igualmente, ponente en el Diplomado de Estadística y Ciencia de Datos en la Universidad de Guanajuato.
+Profesor universitario en cátedras como Confiabilidad, Investigación de Operaciones, Six Sigma, Pensamiento Estadístico, Análisis para la Toma de Decisiones y Matemáticas y Ciencia de Datos. Igualmente, ponente en el Diplomado de Programación Estadística y Ciencia de Datos con R en la Universidad de Guanajuato.

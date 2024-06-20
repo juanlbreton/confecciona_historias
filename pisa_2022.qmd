@@ -1,0 +1,333 @@
+---
+title: "Resultados de México en el dominio de Matemáticas"
+subtitle: "Prueba PISA 2022"
+author: "Juan L. Bretón, PMP"
+bibliography: refer.bib
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+
+## Prueba PISA 2022
+
+La prueba PISA (Programa para la Evaluación Internacional de Estudiantes) 2022 es una evaluación trienal coordinada por la OCDE que mide las habilidades y conocimientos de estudiantes de 15 años en lectura, matemáticas y ciencias. En el dominio de Matemáticas, la prueba PISA evalúa la capacidad de los estudiantes para formular, emplear e interpretar matemáticamente situaciones en diversos contextos.
+
+Para México, los resultados de PISA 2022 en matemáticas son cruciales, ya que ofrecen una visión comparativa del rendimiento de los estudiantes mexicanos frente a sus pares internacionales. Estos resultados ayudan a identificar áreas de mejora en el sistema educativo, proporcionando datos que pueden influir en políticas educativas y prácticas pedagógicas para mejorar el aprendizaje de Matemáticas en el país.
+
+En este análisis, exploraremos los resultados de México en el dominio de Matemáticas en la prueba PISA 2022, centrándonos en los puntajes obtenidos por los estudiantes mexicanos en razón del tipo de escuela a la que asisten, pública o privada.
+
+
+## Datos de México
+
+```{r}
+#| label: librerias
+#| echo: false
+#| warning: false
+#| message: false
+
+# libraries
+library(tidyverse)
+library(styleBreton)
+library(ggstatsplot)
+library(sjPlot)
+library(quantreg)
+library(emmeans)
+library(ggridges)
+library(gt)
+```
+
+
+
+
+```{r}
+#| label: importa datos
+#| echo: false
+
+st_mx <- 
+  read_rds("raw_data/students_mx.rds")
+```
+
+El dataset ya ha sido limpiado y contiene los resultados de `r format(nrow(st_mx), big.mark = ",")` estudiantes mexicanos que tomaron la prueba PISA 2022. Además del puntaje en matemáticas, en lenguaje y en ciencias, el dataset incluye información sobre el género, el tipo de escuela y algunos indicadores tales como el número de libros en el hogar, el nivel reportado de ansiedad ante las matemáticas, el comportamiento proactivo de estudio de matemáticas y la activación del pensamiento matemático.
+
+### Exploración de datos
+
+```{r}
+#| label: skim
+#| echo: false
+
+# skim
+skimr::skim(st_mx)
+```
+
+
+## Análisis de Resultados
+
+### Puntaje medio en Matemáticas
+
+```{r}
+#| label: puntaje global
+#| echo: false
+
+# mex average score in math
+st_mx |> 
+  summarize(media_math = mean(pv1math, na.rm = TRUE)) |> 
+  gt() |> 
+  tab_header(title = "Puntaje medio en Matemáticas",
+             subtitle = "Estudiantes mexicanos") |> 
+  cols_label(media_math = "Puntaje") |> 
+  tab_source_note(source_note = html("Fuente: OCDE - PISA 2022
+                                     <br> Modelaje y visualización: Juan L. Bretón, PMP"))
+```
+
+De acuerdo con los parámetros de la prueba, el puntaje mínimo en Matemáticas para que una persona pueda integrarse a la sociedad y ser productiva es de 420 puntos. El puntaje medio en Matemáticas de los estudiantes mexicanos de `r round(mean(st_mx$pv1math, na.rm = TRUE), 2)` puntos se encuentra por debajo de este umbral.
+
+Un punto relevante es la proporción de estudiantes mexicanos que obtuvieron un puntaje inferior a 420 en Matemáticas. A continuación, se presenta esta proporción.
+
+```{r}
+#| label: proporción mexicanos debajo de 420
+#| echo: false
+#| warning: false
+#| message: false
+
+# percentage of students in math_level 2 or below
+st_mx |> 
+  filter(math_level %in% c("Below 1c", "1c", "1b", "1a")) |> 
+  nrow() / nrow(st_mx) |> 
+  as_tibble()
+```
+
+
+### Puntaje medio por tipo de escuela
+
+Sin embargo, al considerar el tipo de escuela a la que asisten los estudiantes, es posible que existan diferencias en los puntajes obtenidos en Matemáticas. 
+
+
+```{r}
+#| label: puntaje por tipo de escuela
+#| echo: false
+#| warning: false
+#| message: false
+
+# histogram per type of school
+st_mx |> 
+  group_by(type) |> 
+  plot_frq(pv1math,
+           type = "histogram",
+           show.mean = TRUE,
+           normal.curve = TRUE) |> 
+  plot_grid()
+```
+
+
+Una prueba confirma la existencia de diferencias significativas en los puntajes de Matemáticas entre estudiantes de escuelas públicas y privadas.
+
+```{r}
+#| label: prueba hipotesis
+#| echo: false
+#| warning: false
+#| message: false
+
+# first sample
+set.seed(3236)
+samp_01 <- 
+  st_mx |> 
+  group_by(type) |> 
+  slice_sample(n = 650) |> 
+  ungroup() 
+
+
+# normality check for math score by type of school
+samp_01 |>
+  group_by(type) |> 
+  dlookr::normality(pv1math)
+
+# mann-whitney u test per type of school
+ggbetweenstats(data = samp_01,
+               x = type,
+               y = pv1math,
+               type = "nonparametric") +
+  labs(title = "El tipo de escuela incide en el aprendizaje de las Matemáticas",
+       y = "Puntaje en Matemáticas",
+       x = "Tipo de escuela",
+       caption = "Fuente: OECD, 2022 PISA Results, México <br>
+       Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+  theme_breton()
+
+# interpretation of effect
+effectsize::interpret_rank_biserial(0.43)
+```
+
+### Relación entre puntajes y tipo de escuela
+
+Una regresión por cuantiles proporciona una visión más detallada de cómo varían los puntajes a través de la distribución.
+
+Debe tenerse en consideración la disposición de la audiencia para ofrecer este tipo de información.
+
+```{r}
+#| label: visualización por cuantiles
+#| echo: false
+#| warning: false
+#| message: false
+
+# quantile visualization
+st_mx |> 
+  ggplot(aes(x = pv1math, y = type,
+             fill = factor(after_stat(quantile)))) +
+  stat_density_ridges(geom = "density_ridges_gradient",
+                      calc_ecdf = TRUE,
+                      quantile_lines = TRUE, 
+                      quantiles = c(0.1, 0.5, 0.9)) +
+  labs(title = "El desempeño de los estudiantes se desfasa según el tipo de escuela",
+       subtitle = "Diferencias en el puntaje de Matemáticas por nivel de desempeño",
+       x = "Puntaje en Matemáticas",
+       y = "Tipo de escuela",
+       fill = "Cuantil") +
+  theme_breton() +
+  theme(legend.position = "top")
+```
+
+
+Los estudiantes con desempeños medios de escuelas públicas son los que se encuentran más desfasados en comparación con sus pares de escuelas privadas.
+
+```{r}
+#| label: comparación por cuantiles
+#| echo: false
+#| warning: false
+#| message: false
+
+# regression per type of school
+qt_10 <- rq(pv1math ~ type, data = st_mx, tau = 0.1)
+qt_50 <- rq(pv1math ~ type, data = st_mx, tau = 0.5)
+qt_90 <- rq(pv1math ~ type, data = st_mx, tau = 0.9)
+
+# comparison of models
+plot_models(qt_10, qt_50, qt_90,
+            show.values = TRUE,
+            m.labels = c("Cuantil 10", "Cuantil 50", "Cuantil 90"),
+            legend.title = "Modelo") +
+  labs(title = "El desempeño de los estudiantes de escuelas públicas está desfasado",
+       subtitle = "Diferencias en el puntaje de Matemáticas",
+       y = "Diferencia de puntos con respecto a las escuelas privadas") +
+  theme_breton() +
+  theme(legend.position = "top")
+```
+
+### Relación entre puntajes y presencia de libros en el hogar
+
+Otro factor que puede influir en el desempeño de los estudiantes en Matemáticas es la presencia de libros en el hogar.
+
+```{r}
+#| label: modelo con libros
+#| echo: false
+#| warning: false
+#| message: false
+
+# quantile regression
+books_eff_qt <- 
+  rq(pv1math ~ books, 
+     data = st_mx)
+
+# predicted math scores
+plot_model(books_eff_qt, 
+           type = "pred", 
+           terms = "books",
+           show.values = TRUE, 
+           colors = "darkred") +
+  geom_hline(yintercept = 420,
+             alpha = 0.15,
+             linewidth = 3.5,
+             color = "grey60") +
+  annotate(geom = "text",
+           label = "Línea base de participación en la sociedad",
+           family = "Encode Sans Condensed",
+           size = 3.0,
+           x = 1.90,
+           y = 420,
+           color = "grey45") +
+  labs(title = "Tener libros en el hogar aumenta el conocimiento y las habilidades matemáticas",
+       subtitle = "Estimación de puntaje en razón de la presencia de libros",
+       x = "Número de libros existentes en el hogar",
+       y = "Puntaje en Matemáticas",
+       caption = "Fuente: OECD, 2022 PISA Results, México <br>
+       Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+  theme_breton()
+```
+
+Esta gráfica mejora el entendimiento de cómo la presencia de libros en el hogar influye en el desempeño de los estudiantes en Matemáticas.
+
+```{r}
+#| label: aumento de puntos
+#| echo: false
+#| warning: false
+#| message: false
+
+# visualization
+plot_model(books_eff_qt, 
+           show.values = TRUE, 
+           width = 0.1,
+           colors = "darkred") +
+  labs(title = "¿Cuánto mejora el aprendizaje de las Matemáticas cuando hay libros en el hogar?",
+       subtitle = "Estimación de puntos de incremento",
+       y = "Puntos de incremento respecto a 0 libros en el hogar",
+       x = NULL,
+       caption = "Fuente: OECD, 2022 PISA Results, México <br>
+       Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton") +
+  theme_breton()
+```
+
+La interacción entre los libros y el tipo de escuela puede ser un factor determinante en el desempeño de los estudiantes en Matemáticas.
+
+Contar con libros en el hogar tiene efectos positivos en el desempeño de los estudiantes, pero estos efectos varían según el tipo de escuela al que asisten los estudiantes.
+
+```{r}
+#| label: aumento de puntos por tipo de escuela
+#| echo: false
+#| warning: false
+#| message: false
+
+# model with interactions
+books_eff_all <- 
+  rq(pv1math ~ books * type, 
+     data = st_mx) 
+
+# tabla
+books_eff_all |> 
+  emmeans(pairwise ~ type | books) |> 
+  _[[2]] |> 
+  as_tibble()
+
+# grafica
+books_eff_all |> 
+  plot_model(show.values = TRUE,
+             type = "pred",
+             colors = c("#E18B0E", "#2A8A10"),
+             terms = c("books", "type")) +
+  geom_hline(yintercept = 420,
+             alpha = 0.15,
+             linewidth = 3.5,
+             color = "grey60") +
+  annotate(geom = "text",
+           label = "Línea base",
+           family = "Encode Sans Condensed",
+           size = 3.0,
+           x = 0.90,
+           y = 420,
+           color = "grey45") +
+  labs(title = "La existencia de libros en el hogar mejora el aprendizaje de las Matemáticas",
+       subtitle = "Aunque la mejora depende del tipo de escuela",
+       x = "Libros existentes en el hogar",
+       y = "Puntaje estimado",
+       caption = "Fuente: OECD, 2022 PISA Results, México <br>
+       Modelaje y visualización: Juan L. Bretón, PMP | @juanlbreton",
+       color = "Tipo de escuela") +
+  theme_breton() +
+  theme(legend.position = "top")
+```
+
+## Sumario
+
+Los resultados de México en la prueba PISA 2022 en el dominio de Matemáticas reflejan un desempeño por debajo del umbral mínimo de 420 puntos. La comparación entre estudiantes de escuelas públicas y privadas muestra diferencias significativas en los puntajes obtenidos, con un desfase más pronunciado en los estudiantes de escuelas públicas. La presencia de libros en el hogar se asocia con un aumento en el desempeño de los estudiantes en Matemáticas, y esta mejora varía según el tipo de escuela a la que asisten los estudiantes.
+
+
+

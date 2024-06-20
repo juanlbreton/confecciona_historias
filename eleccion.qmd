@@ -1,5 +1,6 @@
 ---
 title: "Resultados de la Elección Presidencial 2024"
+author: "Juan L. Bretón, PMP"
 bibliography: refer.bib
 editor: visual
 editor_options: 
@@ -117,7 +118,7 @@ Modelaje y Visualización: Juan L. Bretón, PMP"))
 
 ### Resultados por entidad y sección
 
-La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes. 
+La proporción de votos obtenidos por cada una de las candidatas punteras en cada una de las secciones electorales de cada entidad muestra patrones interesantes.
 
 En el eje de las abcisas se presenta la proporción de votos a favor de Xóchitl Gálvez y en el eje de las ordenadas la proporción de votos a favor de Claudia Sheinbaum. Cada punto representa las casillas de un tipo dentro de cada sección y su color indica si se trata de casillas urbanas o no urbanas. La bisectriz de la gráfica indica el punto en el que ambas candidatas obtienen la misma proporción de votos.
 
@@ -450,7 +451,6 @@ Modelaje y Visualización: Juan L. Bretón, PMP")) |>
              indice ~ 'Índice de Competitividad Estatal') |> 
   fmt_percent(columns = dife, decimals = 2)
 ```
-
 
 ## Conclusiones
 
