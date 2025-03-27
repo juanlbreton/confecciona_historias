@@ -34,6 +34,16 @@ library(sf)
 dt_homic <- 
   read_rds("raw_data/homicidios.rds")
 
+# ultimo mes
+ulti_mes <- 
+  dt_homic |> 
+  filter(estado == "GUANAJUATO") |> 
+  filter(!is.na(homicidios)) |> 
+  slice_max(order_by = fecha, n = 1) |> 
+  pull(fecha) |> 
+  month(label = TRUE) 
+
+
 # plot mapa de calor
 dt_homic  |> 
   filter(año > 2015) |> 
@@ -60,7 +70,7 @@ dt_homic  |>
           panel.background = element_rect(fill = "#FFFFFF"),
           legend.position = "top") +
     labs(title = "Patrones de la Violencia Homicida en México",
-         subtitle = "Víctimas de homicidio doloso acumuladas cada mes por Entidad Federativa, de enero de 2016 a abril de 2024.",
+         subtitle = paste("Víctimas de homicidio doloso acumuladas cada mes por Entidad Federativa, de enero de 2016 a ", ulti_mes, " de 2024."),
          x = NULL,
          y = NULL,
          caption = "Fuente: Reportes de Incidencia Delictiva; 
@@ -135,7 +145,7 @@ dt_homic_tasa  |>
           panel.background = element_rect(fill = "#FFFFFF"),
           legend.position = "top") +
     labs(title = "¿En qué Estados Ocurren Más Homicidios?",
-         subtitle = "Proporcion de víctimas de homicidio doloso por cada 100,000 habitantes por Entidad Federativa, de enero de 2016 a abril de 2024.",
+         subtitle = paste("Proporcion de víctimas de homicidio doloso por cada 100,000 habitantes por Entidad Federativa, de enero de 2016 a ", ulti_mes, " de 2024."),
          x = NULL,
          y = NULL,
          caption = "Fuente: Reportes de Incidencia Delictiva; 

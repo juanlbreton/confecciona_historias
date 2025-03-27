@@ -8,7 +8,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ## Prueba PISA 2022
 
 La prueba PISA (Programa para la Evaluación Internacional de Estudiantes) 2022 es una evaluación trienal coordinada por la OCDE que mide las habilidades y conocimientos de estudiantes de 15 años en lectura, matemáticas y ciencias. En el dominio de Matemáticas, la prueba PISA evalúa la capacidad de los estudiantes para formular, emplear e interpretar matemáticamente situaciones en diversos contextos.
@@ -16,7 +15,6 @@ La prueba PISA (Programa para la Evaluación Internacional de Estudiantes) 2022 
 Para México, los resultados de PISA 2022 en matemáticas son cruciales, ya que ofrecen una visión comparativa del rendimiento de los estudiantes mexicanos frente a sus pares internacionales. Estos resultados ayudan a identificar áreas de mejora en el sistema educativo, proporcionando datos que pueden influir en políticas educativas y prácticas pedagógicas para mejorar el aprendizaje de Matemáticas en el país.
 
 En este análisis, exploraremos los resultados de México en el dominio de Matemáticas en la prueba PISA 2022, centrándonos en los puntajes obtenidos por los estudiantes mexicanos en razón del tipo de escuela a la que asisten, pública o privada.
-
 
 ## Datos de México
 
@@ -37,9 +35,6 @@ library(ggridges)
 library(gt)
 ```
 
-
-
-
 ```{r}
 #| label: importa datos
 #| echo: false
@@ -59,7 +54,6 @@ El dataset ya ha sido limpiado y contiene los resultados de `r format(nrow(st_mx
 # skim
 skimr::skim(st_mx)
 ```
-
 
 ## Análisis de Resultados
 
@@ -97,11 +91,9 @@ st_mx |>
   as_tibble()
 ```
 
-
 ### Puntaje medio por tipo de escuela
 
-Sin embargo, al considerar el tipo de escuela a la que asisten los estudiantes, es posible que existan diferencias en los puntajes obtenidos en Matemáticas. 
-
+Sin embargo, al considerar el tipo de escuela a la que asisten los estudiantes, es posible que existan diferencias en los puntajes obtenidos en Matemáticas.
 
 ```{r}
 #| label: puntaje por tipo de escuela
@@ -118,7 +110,6 @@ st_mx |>
            normal.curve = TRUE) |> 
   plot_grid()
 ```
-
 
 Una prueba confirma la existencia de diferencias significativas en los puntajes de Matemáticas entre estudiantes de escuelas públicas y privadas.
 
@@ -187,7 +178,6 @@ st_mx |>
   theme(legend.position = "top")
 ```
 
-
 Los estudiantes con desempeños medios de escuelas públicas son los que se encuentran más desfasados en comparación con sus pares de escuelas privadas.
 
 ```{r}
@@ -245,7 +235,7 @@ plot_model(books_eff_qt,
            x = 1.90,
            y = 420,
            color = "grey45") +
-  labs(title = "Tener libros en el hogar aumenta el conocimiento y las habilidades matemáticas",
+  labs(title = "Tener libros en el hogar aumenta el conocimiento\ny las habilidades matemáticas",
        subtitle = "Estimación de puntaje en razón de la presencia de libros",
        x = "Número de libros existentes en el hogar",
        y = "Puntaje en Matemáticas",
@@ -267,7 +257,7 @@ plot_model(books_eff_qt,
            show.values = TRUE, 
            width = 0.1,
            colors = "darkred") +
-  labs(title = "¿Cuánto mejora el aprendizaje de las Matemáticas cuando hay libros en el hogar?",
+  labs(title = "¿Cuánto mejora el aprendizaje de las Matemáticas\ncuando hay libros en el hogar?",
        subtitle = "Estimación de puntos de incremento",
        y = "Puntos de incremento respecto a 0 libros en el hogar",
        x = NULL,
@@ -314,7 +304,7 @@ books_eff_all |>
            x = 0.90,
            y = 420,
            color = "grey45") +
-  labs(title = "La existencia de libros en el hogar mejora el aprendizaje de las Matemáticas",
+  labs(title = "La existencia de libros en el hogar mejora\nel aprendizaje de las Matemáticas",
        subtitle = "Aunque la mejora depende del tipo de escuela",
        x = "Libros existentes en el hogar",
        y = "Puntaje estimado",
@@ -328,6 +318,3 @@ books_eff_all |>
 ## Sumario
 
 Los resultados de México en la prueba PISA 2022 en el dominio de Matemáticas reflejan un desempeño por debajo del umbral mínimo de 420 puntos. La comparación entre estudiantes de escuelas públicas y privadas muestra diferencias significativas en los puntajes obtenidos, con un desfase más pronunciado en los estudiantes de escuelas públicas. La presencia de libros en el hogar se asocia con un aumento en el desempeño de los estudiantes en Matemáticas, y esta mejora varía según el tipo de escuela a la que asisten los estudiantes.
-
-
-
